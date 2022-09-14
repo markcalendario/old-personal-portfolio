@@ -704,7 +704,7 @@ class EducationAndExperience extends Component {
 											Best in Research in Information and Communications Technology
 											<br />
 											The Development of the{' '}
-											<a href='/view-project/60ed32ebd275b7d18abb0436'>
+											<a href='/view-project/63217d369d010c6516005245'>
 												Student Management System of Arellano University Jose Rizal High
 												School
 											</a>
