@@ -37,8 +37,12 @@ class FullPageLoader extends Component {
     render() {
         return (
             <div className="full-page-loader">
-                <img src={KennethLogo} alt="Logo" />
-                <p>Loading, please wait...</p>
+                <div className="fpl-content">
+                    <div className="wrap">
+                        <img src={KennethLogo} alt="Logo" />
+                        <p>Loading, please wait...</p>
+                    </div>
+                </div>
             </div>
         )
     }

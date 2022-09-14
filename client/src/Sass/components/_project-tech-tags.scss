@@ -1,8 +1,10 @@
 .tech-tag {
     background-color: rgba($color: $white, $alpha: 0.15);
     padding: 7px;
-    margin: 3px 3px 0 0;
-    
+    border: 1px $white solid;
+    margin: 5px;
+    margin-left: unset;
+
     p {
         font-size: 12px;
     }

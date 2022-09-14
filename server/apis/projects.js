@@ -68,7 +68,7 @@ router.get('/latest', async (req, res) => {
 				$limit: 1,
 			},
 			{
-				$sort: { _id: -1 },
+				$sort: { _id: 1 },
 			},
 		])
 		.toArray((error, result) => {

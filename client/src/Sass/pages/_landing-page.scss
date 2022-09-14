@@ -130,6 +130,7 @@ body {
 
 					.terminal {
 						@include terminal($charcoal, $white, 400px);
+						z-index: 2;
 					}
 				}
 

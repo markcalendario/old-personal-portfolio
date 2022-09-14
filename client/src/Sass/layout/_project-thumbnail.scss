@@ -25,10 +25,10 @@
                 .shortname {
                     font-size: 40px;
                     font-weight: 1000;
+                    margin-top: unset;
                 }
 
                 .fullname {
-                    margin-top: unset;
                     line-height: 20px;
                     font-weight: 300;
                 }
@@ -36,10 +36,7 @@
                 .tags {
                     display: flex;
                     justify-content: center;
-
-                    &>* {
-                        margin-right: 5px;
-                    }
+                    flex-wrap: wrap;
                 }
             }
 
