@@ -63,14 +63,9 @@ router.get('/latest', async (req, res) => {
 	const db = await DBConnection();
 	db.db('portfolio')
 		.collection('projects')
-		.aggregate([
-			{
-				$limit: 1,
-			},
-			{
-				$sort: { _id: 1 },
-			},
-		])
+		.find({})
+		.sort({ _id: -1 })
+		.limit(1)
 		.toArray((error, result) => {
 			db.close();
 			if (error) {
