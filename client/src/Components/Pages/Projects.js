@@ -118,77 +118,71 @@ function MainProjectPage(props) {
 	);
 }
 
-class ProjectNavigator extends Component {
-	state = {
-		isTechnologiesChoicesOpen: true,
+function ProjectNavigator() {
+	const [isTechnologiesChoicesOpen, setIsTechnologiesChoicesOpen] = useState(true)
+
+	const handleTechnologyChoicesState = () => {
+		setIsTechnologiesChoicesOpen(prev => !prev)
 	};
 
-	handleTechnologyChoicesState = () => {
-		this.state.isTechnologiesChoicesOpen
-			? this.setState({ isTechnologiesChoicesOpen: false })
-			: this.setState({ isTechnologiesChoicesOpen: true });
-	};
-
-	render() {
-		return (
-			<div className='projects-navigator'>
-				<div className='project-lang-choices'>
-					<div className='title' onClick={this.handleTechnologyChoicesState}>
-						<h4>Choose a Technology</h4>
-					</div>
-					<div
-						className={
-							'technologies ' +
-							(this.state.isTechnologiesChoicesOpen
-								? 'technologies-open'
-								: 'technologies-close')
-						}
-					>
-						<Link to='/projects/all'>
-							All <FontAwesomeIcon icon={faNodeJs} />
-							<FontAwesomeIcon icon={faReact} />
-							<FontAwesomeIcon icon={faCode} />
-							<FontAwesomeIcon icon={faLeaf} />
-							<FontAwesomeIcon icon={faPhp} />
-							<FontAwesomeIcon icon={faNodeJs} />
-							<FontAwesomeIcon icon={faHtml5} />
-							<FontAwesomeIcon icon={faCss3Alt} />
-							<FontAwesomeIcon icon={faSass} />
-							<FontAwesomeIcon icon={faFish} />
-						</Link>
-						<Link to={`/projects/` + technologiesList.nodejs}>
-							Node JS <FontAwesomeIcon icon={faNodeJs} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.reactjs}>
-							React JS <FontAwesomeIcon icon={faReact} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.expressjs}>
-							Express JS <FontAwesomeIcon icon={faCode} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.mongodb}>
-							Mongo DB <FontAwesomeIcon icon={faLeaf} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.php}>
-							PHP <FontAwesomeIcon icon={faPhp} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.html}>
-							HTML <FontAwesomeIcon icon={faHtml5} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.css}>
-							CSS / SASS <FontAwesomeIcon icon={faCss3Alt} />
-							<FontAwesomeIcon icon={faSass} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.javascript}>
-							Javascript <FontAwesomeIcon icon={faJs} />
-						</Link>
-						<Link to={'/projects/' + technologiesList.mysql}>
-							MySQL <FontAwesomeIcon icon={faFish} />
-						</Link>
-					</div>
+	return (
+		<div className='projects-navigator'>
+			<div className='project-lang-choices'>
+				<div className='title' onClick={handleTechnologyChoicesState}>
+					<h4>Choose a Technology</h4>
+				</div>
+				<div
+					className={
+						'technologies ' +
+						(isTechnologiesChoicesOpen
+							? 'technologies-open'
+							: 'technologies-close')
+					}
+				>
+					<a href='/projects/all'>
+						All <FontAwesomeIcon icon={faNodeJs} />
+						<FontAwesomeIcon icon={faReact} />
+						<FontAwesomeIcon icon={faCode} />
+						<FontAwesomeIcon icon={faLeaf} />
+						<FontAwesomeIcon icon={faPhp} />
+						<FontAwesomeIcon icon={faNodeJs} />
+						<FontAwesomeIcon icon={faHtml5} />
+						<FontAwesomeIcon icon={faCss3Alt} />
+						<FontAwesomeIcon icon={faSass} />
+						<FontAwesomeIcon icon={faFish} />
+					</a>
+					<a href={`/projects/` + technologiesList.nodejs}>
+						Node JS <FontAwesomeIcon icon={faNodeJs} />
+					</a>
+					<a href={'/projects/' + technologiesList.reactjs}>
+						React JS <FontAwesomeIcon icon={faReact} />
+					</a>
+					<a href={'/projects/' + technologiesList.expressjs}>
+						Express JS <FontAwesomeIcon icon={faCode} />
+					</a>
+					<a href={'/projects/' + technologiesList.mongodb}>
+						Mongo DB <FontAwesomeIcon icon={faLeaf} />
+					</a>
+					<a href={'/projects/' + technologiesList.php}>
+						PHP <FontAwesomeIcon icon={faPhp} />
+					</a>
+					<a href={'/projects/' + technologiesList.html}>
+						HTML <FontAwesomeIcon icon={faHtml5} />
+					</a>
+					<a href={'/projects/' + technologiesList.css}>
+						CSS / SASS <FontAwesomeIcon icon={faCss3Alt} />
+						<FontAwesomeIcon icon={faSass} />
+					</a>
+					<a href={'/projects/' + technologiesList.javascript}>
+						Javascript <FontAwesomeIcon icon={faJs} />
+					</a>
+					<a href={'/projects/' + technologiesList.mysql}>
+						MySQL <FontAwesomeIcon icon={faFish} />
+					</a>
 				</div>
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 function ProjectList(props) {
@@ -220,10 +214,6 @@ function ProjectList(props) {
 		return projects.map((data) => (
 			<div key={data._id} className='project-wrapper'>
 				<Project data={data} />
-				{
-					// ! IMPORTANT: This portion is intendedly blank for project details (date or whatsoever)
-					// ? Use .project-details class with <div> to use it.
-				}
 			</div>
 		));
 	};
