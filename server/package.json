@@ -1,0 +1,25 @@
+{
+  "name": "mark-kenneth-portfolio-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Kenneth Calendario",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^88.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.9",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,23 @@
+@keyframes cursorAnimation {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.type-effect-cursor {
+    animation: cursorAnimation .5s infinite;
+}
+
+.type-effect {
+    & > * {
+        display: inline; // Maintain typing cursor inline with the text
+    }
+}

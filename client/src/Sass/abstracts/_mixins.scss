@@ -1,0 +1,60 @@
+@mixin shadow($backdrop-color) {
+    box-shadow: rgba($color: $backdrop-color, $alpha: 0.15) 0px 8px 24px;
+}
+
+@mixin five-tailed-shadow($color, $direction) {
+
+    @if $direction == topleft {
+        
+        box-shadow: 
+            rgba($color, 0.4) -5px -5px, 
+            rgba($color, 0.3) -10px -10px, 
+            rgba($color, 0.2) -15px -15px, 
+            rgba($color, 0.1) -20px -20px, 
+            rgba($color, 0.05) -25px -25px;
+
+    } @else if $direction == topright {
+        
+        box-shadow: 
+            rgba($color, 0.4) 5px -5px, 
+            rgba($color, 0.3) 10px -10px, 
+            rgba($color, 0.2) 15px -15px, 
+            rgba($color, 0.1) 20px -20px, 
+            rgba($color, 0.05) 25px -25px;
+
+    } @else if $direction == bottomright {
+        
+        box-shadow: 
+            rgba($color, 0.4) 5px 5px, 
+            rgba($color, 0.3) 10px 10px, 
+            rgba($color, 0.2) 15px 15px, 
+            rgba($color, 0.1) 20px 20px, 
+            rgba($color, 0.05) 25px 25px;
+
+    } @else if $direction == bottomleft {
+        
+        box-shadow: 
+            rgba($color, 0.4) -5px 5px, 
+            rgba($color, 0.3) -10px 10px, 
+            rgba($color, 0.2) -15px 15px, 
+            rgba($color, 0.1) -20px 20px, 
+            rgba($color, 0.05) -25px 25px;
+
+    }
+
+}
+
+// Text Gradient
+
+@mixin textGradient {
+    background-image: linear-gradient(to right, $blue, $red);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// Sections
+
+@mixin sectionProperties {
+    margin: 50px 0;
+    padding: 20px;
+}

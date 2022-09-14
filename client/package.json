@@ -1,0 +1,49 @@
+{
+  "name": "portfolio-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "aos": "^2.3.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-parallax-tilt": "^1.5.28",
+    "react-router-dom": "^6.4.0",
+    "react-scripts": "4.0.3",
+    "typewriter-effect": "^2.18.0",
+    "universal-cookie": "^4.0.4",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "linuxBuldNoSource": "GENERATE_SOURCEMAP=false react-scripts build",
+    "winBuildNoSource": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

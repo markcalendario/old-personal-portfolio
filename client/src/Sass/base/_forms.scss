@@ -1,0 +1,55 @@
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    border: 0;
+    border: 0.5px $charcoal solid;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 15px 0;
+    
+    &:first-child {
+        background-color: red;
+    }
+
+   & > * {
+        margin: 5px 0;
+    } 
+}
+
+.form-control-fluid {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    font-weight: 500;
+    font-size: small;
+}
+
+.form-header-text {
+    text-align: left;
+    margin: 10px 0;
+}
+
+label[data-required="true"]:after {
+    content: ' *';
+    color: $red;
+}
+
+.form-result-text {
+    color: $orange;
+    margin: 20px 0;
+    font-weight: bold;
+    text-align: left;
+}

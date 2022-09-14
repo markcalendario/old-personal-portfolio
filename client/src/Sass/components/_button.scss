@@ -1,0 +1,164 @@
+.button {
+    padding: 15px 25px;
+    border: 0;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: transparent;
+}
+
+.link-button {
+
+    border: 0;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: transparent;
+
+    a {
+        text-decoration: none;
+        color: unset;
+        padding: 15px 25px;
+        display: block;
+    }
+}
+
+// ==============================
+// SOLID BUTTONS
+// ==============================
+
+.solid-primary-btn {
+    color: $white;
+    background-color: $primary-color;
+
+    &:hover {
+        color: $primary-color;
+        background-color: rgba($color: $primary-color, $alpha: 0.1);
+    }
+}
+
+.solid-stable-btn {
+    color: $white;
+    background-color: $blue;
+
+    &:hover {
+        color: $blue;
+        background-color: rgba($color: $blue, $alpha: 0.1);
+    }
+}
+
+.solid-warn-btn {
+    color: $white;
+    background-color: $orange;
+
+    &:hover {
+        color: $orange;
+        background-color: rgba($color: $orange, $alpha: 0.1);
+    }
+}
+
+.solid-danger-btn {
+    color: $white;
+    background-color: $red;
+
+    &:hover {
+        color: $red;
+        background-color: rgba($color: $red, $alpha: 0.1);
+    }
+}
+
+// ==============================
+// LIQUID BUTTONS
+// ==============================
+
+.liquid-primary-btn {
+    color: $primary-color;
+}
+
+.liquid-primary-btn:hover {
+    background-color: rgba($color: $primary-color, $alpha: 0.1);
+}
+
+.liquid-stable-btn {
+    color: $blue;
+}
+
+.liquid-stable-btn:hover {
+    background-color: rgba($color: $blue, $alpha: 0.1);
+}
+
+.liquid-warn-btn {
+    color: $orange;
+}
+
+.liquid-warn-btn:hover {
+    background-color: rgba($color: $orange, $alpha: 0.1);
+}
+
+.liquid-danger-btn {
+    color: $red;
+}
+
+.liquid-danger-btn:hover {
+    background-color: rgba($color: $red, $alpha: 0.1);
+}
+
+// ==============================
+// LIQUID BUTTONS
+// ==============================
+
+.icon-btn-white {
+    color: $white;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    font-size: large;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background-color: rgba($color: $white, $alpha: 0.1);
+}
+
+.icon-btn-white:hover {
+    transform: scale(1.3);
+}
+
+// ==============================
+// LIQUID BUTTONS
+// ==============================
+
+.black-link-btn {
+    color: $primary-color;
+    text-decoration: none;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width .3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+.white-link-btn {
+    color: $white;
+    text-decoration: none;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $white;
+        transition: width .3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}

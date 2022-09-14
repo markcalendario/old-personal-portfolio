@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+// * Thin 100
+// * Extra Light 200
+// * Light 300
+// * Regular 400
+// * Medium 500
+// * Semi-bold 600
+// * Bold 700
+// * Extra-Bold 800
+// * Black 900
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+// Defaults
+
+code {
+    font-family: 'Ubuntu Mono', monospace;
+
+    span {
+        font-family: 'Ubuntu Mono', monospace;
+    }
+}
+
+p {
+    line-height: 1.8;
+}
+
+// Displays
+// ? Big Letters
+
+.display-1 {
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.display-2 {
+    font-size: 28px;
+}
+
+.display-3 {
+    font-size: 26px;
+}
+
+.display-4 {
+    font-size: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .display-1 {
+        font-size: 40px;
+    }
+
+    .display-2 {
+        font-size: 38px;
+    }
+
+    .display-3 {
+        font-size: 36px;
+    }
+
+    .display-4 {
+        font-size: 34px;
+    }
+
+}

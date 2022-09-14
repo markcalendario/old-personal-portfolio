@@ -1,0 +1,39 @@
+#error {
+    background-color: $charcoal;
+    width: 100%;
+
+    .container {
+        .wrapper {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 200px 0;
+
+            .content {
+                figure {
+                    width: 300px;
+                    margin: auto;
+    
+                    img {
+                        width: 100%;
+                    }
+                }
+    
+                .texters {
+                    color: $white;
+    
+                    code {
+                        font-weight: bolder;
+                        font-size: large;
+                    }
+    
+                    p {
+                        font-size: small;
+                        margin: 20px auto;
+                    }
+                }
+            }
+        }
+    }
+}

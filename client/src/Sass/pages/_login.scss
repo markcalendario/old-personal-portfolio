@@ -1,0 +1,60 @@
+#login-page {
+	min-height: 100vh;
+	background-color: $charcoal;
+	.container {
+		.wrapper {
+			padding-top: 150px;
+			form {
+				background-color: $white;
+				padding: 20px;
+				border-radius: 5px;
+				width: 100%;
+
+				.image {
+					text-align: center;
+					img {
+						width: 200px;
+					}
+				}
+
+				h3 {
+					text-align: center;
+				}
+
+				& > *:not(:first-child) {
+					margin-top: 10px;
+				}
+
+				input,
+				button {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#login-page {
+		.container {
+			.wrapper {
+				padding-top: 250px;
+				form {
+					width: 450px;
+					margin: auto;
+
+					& > *:not(:first-child) {
+						margin-top: 10px;
+					}
+
+					input,
+					button {
+						display: block;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,131 @@
+@mixin tooltip($location, $bg-color, $text-color, $width) {
+
+    position: relative;
+    display: inline-block;
+
+    @if $location ==top {
+
+        span {
+            bottom: 50px; // Initial Position (during animation)
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:after {
+                // Triangle pointer
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-top: 8px solid $bg-color;
+                border-right: 8px solid transparent;
+                border-left: 8px solid transparent;
+            }
+        }
+
+        &:hover span {
+            bottom: 40px; // Final Position (after animation)
+        }
+
+    }
+
+    @else if $location ==left {
+
+        span {
+            right: calc(100% + 15px); // Initial Position (during animation)
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:after {
+                // Triangle pointer
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%);
+                border-top: 8px solid transparent;
+                border-left: 8px solid $bg-color;
+                border-bottom: 8px solid transparent;
+            }
+        }
+
+        &:hover span {
+            right: calc(100% + 8px); // Final Position (after animation)
+        }
+
+    }
+
+    @else if $location ==right {
+
+        span {
+            left: calc(100% + 15px); // Initial Position (during animation)
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:after {
+                // Triangle pointer
+                top: 50%;
+                right: 100%;
+                transform: translateY(-50%);
+                border-top: 8px solid transparent;
+                border-right: 8px solid $bg-color;
+                border-bottom: 8px solid transparent;
+            }
+        }
+
+        &:hover span {
+            left: calc(100% + 8px); // Final Position (after animation)
+        }
+
+    }
+
+    @else if $location ==bottom {
+
+        span {
+            top: 50px; // Initial Position (during animation)
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:after {
+                // Triangle pointer
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-bottom: 8px solid $bg-color;
+                border-right: 8px solid transparent;
+                border-left: 8px solid transparent;
+            }
+        }
+
+        &:hover span {
+            top: 40px; // Final Position (after animation)
+        }
+
+    }
+
+    span {
+        position: absolute;
+        background: $bg-color;
+        color: $text-color;
+        padding: 10px 20px;
+        width: $width;
+        visibility: hidden;
+        opacity: 0;
+        margin: auto;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 300;
+        transition: 0.3s ease;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    &:hover span {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}

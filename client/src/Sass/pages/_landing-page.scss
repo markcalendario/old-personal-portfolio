@@ -1,0 +1,635 @@
+body {
+	background-color: $bodyCol;
+}
+
+#parallax {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+
+	&>* {
+		width: 350px;
+		transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.parallax-mountain-a {
+		position: absolute;
+		bottom: 0;
+		left: 0%;
+	}
+
+	.parallax-mountain-b {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+}
+
+#landing-page {
+	height: 600px;
+	background-size: cover;
+	background-repeat: repeat;
+	position: relative;
+
+	.container {
+		height: 90%; // Preserve for Stickiness
+
+		.wrapper {
+			position: sticky;
+			top: 150px;
+			text-align: center;
+			color: $white;
+			width: 100%;
+
+			h1 {
+				font-weight: 900;
+			}
+
+			p {
+				font-weight: 300;
+			}
+
+			button {
+				margin-top: 20px;
+			}
+
+			.contacts {
+				a:not(:first-child) {
+					margin-left: 30px;
+				}
+			}
+		}
+	}
+}
+
+#quick-overview {
+	margin-top: -50px;
+	margin-bottom: 50px;
+	width: 100%;
+	position: relative;
+
+	.container {
+		.wrapper {
+			.box {
+				background-color: $white;
+				padding: 25px;
+				border-radius: 10px;
+				@include shadow($charcoal);
+
+				h3 {
+					margin: 0 0 20px 0;
+				}
+
+				.left {
+					.overview-text {
+						padding: 10px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+#about {
+	background-color: $primary-color;
+	padding: 100px 0;
+	transition: 0.3s ease;
+	margin: 50px 0;
+
+	.container {
+		.wrapper {
+			h1 {
+				margin-top: 20px;
+				font-weight: 900;
+				@include textGradient;
+			}
+
+			.about-intro {
+				.left {
+					text-align: center;
+
+					img {
+						width: 250px;
+					}
+				}
+
+				.right {
+					p {
+						margin: 20px 0;
+						color: $white;
+					}
+				}
+			}
+
+			.about-goal {
+				margin-top: 30px;
+
+				.left {
+					position: relative;
+					text-align: center;
+
+					.terminal {
+						@include terminal($charcoal, $white, 400px);
+					}
+				}
+
+				img {
+					position: absolute;
+					width: 100%;
+					left: 50%;
+					top: 20%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			.right {
+				margin-top: 50px;
+
+				p {
+					color: $white;
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}
+
+#expertise {
+	margin: 50px 0;
+
+	.container {
+		.wrapper {
+			.left {
+				h1 {
+					font-weight: 900;
+					color: $primary-color;
+					margin-bottom: 20px;
+				}
+
+				.gray {
+					opacity: 0.5;
+				}
+			}
+
+			.right {
+				margin: 50px 0;
+				text-align: center;
+				background-color: $primary-color;
+				border-radius: 10px;
+				position: relative;
+				overflow: hidden;
+
+				.graphic {
+					opacity: 0.2;
+					position: absolute;
+					font-size: 350px;
+					bottom: -40px;
+					left: -40px;
+					transition: 0.5s ease;
+				}
+
+				.content {
+					position: relative;
+					padding: 20px;
+
+					.capsule-compilation {
+						&>* {
+							margin: 7px 0 7px 10px;
+						}
+					}
+
+					.divider-text {
+						margin: 10px 0;
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+}
+
+#education-experience {
+	background-color: $primary-color;
+	padding: 50px 0;
+
+	.container {
+		.wrapper {
+			.topper-title {
+				text-align: center;
+				padding: 30px 0;
+				@include textGradient();
+				font-weight: 900;
+			}
+
+			.timeline {
+				display: flex;
+				justify-content: center;
+			}
+		}
+	}
+}
+
+#featured-projects {
+	margin: 50px 0;
+
+	.container {
+		.wrapper {
+			.texters {
+				h1 {
+					font-weight: 800;
+					margin-bottom: 20px;
+				}
+
+				p {
+					margin: 20px 0;
+				}
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			.projects {
+				// * Project Separations
+				// ? Add Whitespace before another project
+
+				&>* {
+					margin: 0 0 30px 0;
+				}
+			}
+		}
+	}
+}
+
+#services {
+	margin: 100px 0 0 0;
+	background-color: $primary-color;
+
+	.container {
+		.wrapper {
+			padding: 10px;
+
+			.title {
+				margin: 30px 0;
+				@include textGradient;
+				font-weight: 900;
+				text-align: center;
+			}
+
+			.flex {
+				.text {
+
+					h3,
+					p {
+						color: $gray;
+					}
+
+					h3 {
+						margin: 50px 0 20px 0;
+						@include tooltip(bottom, $white, $charcoal, 150px);
+					}
+
+					svg {
+						margin-right: 10px;
+					}
+				}
+
+				&:nth-child(odd) figure img {
+					@include five-tailed-shadow($white, bottomleft);
+				}
+
+				&:nth-child(even) figure img {
+					@include five-tailed-shadow($white, bottomright);
+				}
+
+				figure {
+					text-align: center;
+
+					img {
+						width: 100%;
+						border-radius: 10px;
+						margin: 30px auto;
+						display: block;
+						border: 1px $white solid;
+						transition: 0.3s ease;
+
+						&:hover {
+							box-shadow: unset;
+							@include shadow($white);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#request-project {
+	margin: 100px 0;
+
+	.container {
+		.wrapper {
+			.left {
+				margin: 70px 0;
+
+				text-align: center;
+
+				h1 {
+					color: $primary-color;
+					font-weight: 900;
+					margin-bottom: 30px;
+				}
+
+				.buttons {
+					display: flex;
+					flex-direction: column;
+
+					button:first-child {
+						margin-top: 30px;
+					}
+				}
+			}
+
+			.right {
+				margin: 50px 0;
+
+				img {
+					width: 300px;
+					margin: auto;
+					display: block;
+					filter: drop-shadow(1px 6px 6px rgba(90, 58, 58, 0.1));
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	#request-project {
+		.container {
+			.wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&>* {
+					width: 45%;
+				}
+
+				.left {
+					margin: unset 0;
+					text-align: left;
+
+					h1 {
+						color: $primary-color;
+					}
+
+					.buttons {
+						justify-content: left;
+					}
+				}
+
+				.right {
+					margin: unset 0;
+					text-align: right;
+
+					img {
+						width: 100%;
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+
+	#services {
+		background-color: $primary-color;
+
+		.container {
+			.wrapper {
+				padding: 100px 10px;
+
+				.texter {
+					h1 {
+						@include textGradient;
+					}
+				}
+
+				.invert {
+					flex-direction: row-reverse;
+				}
+
+				.flex {
+					align-items: center;
+					display: flex;
+					justify-content: space-between;
+					margin: 100px 0;
+
+					&>* {
+						width: 48%;
+					}
+
+					figure {
+						img {
+							margin: unset;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#featured-projects {
+		.container {
+			.wrapper {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+
+				.texters {
+					width: 35%;
+					position: sticky;
+					top: 10%;
+					height: 100%;
+				}
+
+				.projects {
+					width: 60%;
+				}
+			}
+		}
+	}
+
+	#education-experience {
+		background-image: url('../Images/landingpage/MountainClimb.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	#expertise {
+		margin: 100px 0;
+
+		.container {
+			.wrapper {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+
+				.left {
+					position: sticky;
+					top: 8rem;
+					width: 40%;
+					display: inline;
+					transition: 0.3s ease;
+
+					.gray {
+						opacity: 0.5;
+					}
+
+					.horizontal-line {
+						background-color: $charcoal;
+						height: 5px;
+						width: 500px;
+						margin: 10px 0;
+						animation-name: lineAnim;
+						animation-duration: 1s;
+						transition: 0.3s ease;
+						text-align: right;
+					}
+
+					@keyframes lineAnim {
+						from {
+							width: 0px;
+						}
+
+						100% {
+							width: 500px;
+							height: 5px;
+						}
+					}
+				}
+
+				.right {
+					margin: unset;
+					text-align: right;
+					width: 55%;
+					border-radius: 10px;
+
+					.graphic {
+						font-size: 700px;
+						bottom: -150px;
+						left: -100px;
+					}
+
+					.content {
+						padding: 60px;
+					}
+				}
+			}
+		}
+	}
+
+	#about {
+		padding: 150px 0;
+
+		.container {
+			.wrapper {
+				.about-intro {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					&>* {
+						width: calc(50% - 30px);
+					}
+
+					.left {
+						img {
+							width: 400px;
+							transition: 0.3s ease;
+						}
+					}
+
+					.right {
+						margin-top: unset;
+					}
+				}
+
+				.about-goal {
+					margin-top: 100px;
+					display: flex;
+					flex-direction: row-reverse;
+					align-items: center;
+					justify-content: space-between;
+
+					&>* {
+						width: calc(50% - 30px);
+					}
+
+					.left {
+						img {
+							width: 350px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#quick-overview {
+		.container {
+			.wrapper {
+				.box {
+					padding: 50px;
+					display: flex;
+					justify-content: space-between;
+
+					&>* {
+						width: 50%;
+					}
+				}
+			}
+		}
+	}
+
+	#parallax {
+		&>* {
+			width: 700px;
+		}
+	}
+
+	#landing-page {
+		height: 100vh;
+		font-size: unset !important;
+
+		.container {
+			.wrapper {
+				top: 200px;
+				text-align: left;
+				width: unset;
+
+				.type-effect {
+					&>* {
+						display: inline;
+					}
+				}
+
+				.contacts {
+					margin: 30px 0;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	#landing-page {
+		background-image: url(../Images/landingpage/Front-Mobile.png);
+	}
+}
+
+@media (min-width: 768px) {
+	#landing-page {
+		background-image: url(../Images/landingpage/Front-Large.png);
+	}
+}

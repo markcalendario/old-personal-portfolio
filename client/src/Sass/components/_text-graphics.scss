@@ -1,0 +1,61 @@
+.front-text-graphic {
+    position: absolute;
+    overflow: hidden;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-align: center;
+    width: 100%;
+    user-select: none;
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 180px;
+        font-weight: 1000;
+        color: $primary-color;
+        text-shadow: -1px 0 $white, 0 1px $white, 1px 0 $white, 0 -1px $white;
+        opacity: 0.1;
+        letter-spacing: 0.3em;
+        transition: 0.3s ease;
+        animation: front-text-graphic-animation 5s;
+        animation-timing-function: ease;
+        
+        &:nth-child(even) {
+            transform: translateX(-50px);
+        }
+
+        &:nth-child(odd) {
+            transform: translateX(50px);
+        }
+    }
+
+
+}
+
+@keyframes front-text-graphic-animation {
+    from {
+        letter-spacing: unset;
+    }
+
+
+    30% {
+        color: $primary-color;
+    }
+    40% {
+        color: $gray;
+    }
+
+    60% {
+        letter-spacing: unset;
+    }
+
+    80% {
+        letter-spacing: 0.3em;
+        color: $gray;
+    }
+
+    85% {
+        color: $primary-color;
+    }
+
+}

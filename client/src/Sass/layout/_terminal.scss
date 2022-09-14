@@ -1,0 +1,33 @@
+@mixin terminal($bg-color, $text-color, $height) {
+	position: relative;
+	padding: 50px 40px 40px 40px;
+	border-radius: 10px;
+	height: $height;
+	overflow: hidden;
+	background-color: $bg-color;
+	color: $text-color;
+	text-align: left;
+	background-image: url(../Images/kenneth-logo-black.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	opacity: 0.9;
+
+	&:hover {
+		transform: scale(1.05);
+		opacity: 1;
+	}
+
+	.terminal-controls {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 10px;
+
+		svg {
+			float: right;
+			margin-right: 20px;
+		}
+	}
+}

@@ -1,0 +1,191 @@
+#main-project-page {
+    margin-top: 100px;
+
+    .container {
+        .wrapper {
+            .projects-navigator {
+                border-radius: 5px;
+                background-color: $totalWhite;
+                margin-bottom: 50px;
+                border: 1px $gray3 solid;
+                @include shadow($gray3);
+
+                .project-lang-choices {
+
+                    .title {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        & > * {
+                            padding: 15px;
+                        }
+                    }
+
+                    .technologies-open, .technologies-close {
+                        transition: 1.3s ease !important;
+                    }
+
+                    .technologies-open {
+                        height: fit-content;
+                    }
+
+                    .technologies-close {
+                        height: 1px;
+                    }
+
+                    .technologies {
+                        overflow: hidden;
+                        
+                        & > * {
+                            color: $charcoal;
+                            padding: 15px;
+                        }
+
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            
+    
+                            svg {
+                                opacity: 0;
+                                font-size: large;
+                                transform: translateX(100px);
+                                transition: 0.3s ease;
+                            }
+                            
+                            &:hover, &:hover svg {
+                                background-color: rgba($color: $gray, $alpha: 0.2);
+                                svg {
+                                    opacity: 1;
+                                    transform: translateX(0);
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #project-list {
+                & > * {
+                    margin-bottom: 30px;
+                }
+
+                .project-wrapper {
+                    .project-details {
+                        display: flex;
+                        align-items: center;
+                        padding: 5px 0;
+
+                        & > * {
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#project-topper {
+
+    .container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        
+        .wrapper {
+            text-align: center;
+            .topper-buttons {
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                & > * {
+                    margin: 10px 0;
+                }
+
+            }
+        }
+    }
+}
+
+#no-projects-found {
+    text-align: center;
+    .npf-wrapper {
+        figure {
+            img {
+                width: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #no-projects-found {
+        text-align: center;
+        .npf-wrapper {
+            figure {
+                img {
+                    width: 400px;
+                    -webkit-filter: drop-shadow(2px 2px 2px $gray3);
+                    filter: drop-shadow(2px 2px 2px $gray3);
+                }
+            }
+        }
+    }
+
+    #main-project-page {
+    
+        .container {
+            .wrapper {
+
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                align-items: flex-start;
+
+                .projects-navigator {
+                    position: sticky;
+                    top: 50px;
+                    width: 25%;
+                }
+    
+                #project-list {
+                    width: 60%;
+
+                    .topper {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+    #project-topper {
+    
+        .container {
+            .wrapper {
+
+                .text {
+                    width: 50%;
+                    margin: auto;
+                }
+
+                .topper-buttons {
+                    flex-direction: row;
+
+                    & > * {
+                        margin: 0 5px;
+                    }
+
+                }
+            }
+        }
+    }
+}

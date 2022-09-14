@@ -1,0 +1,29 @@
+.capsule-white {
+
+        background-color: $white;
+        display: inline-block;
+        align-items: flex-start;
+        @include shadow($gray);
+        overflow: hidden;
+        border-radius: 5px;
+        cursor: pointer;
+    
+        .capsule-content {
+            display: flex;
+            align-items: center;
+    
+            .capsule-icon {
+                padding: 10px;
+                color: $charcoal;
+                background-color: $gray;
+            }
+    
+            .capsule-text {
+                font-family: PoppinsBlack;
+                font-weight: bold;
+                padding: 10px;
+                color: $charcoal;
+            }
+    
+        }
+}

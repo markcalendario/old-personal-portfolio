@@ -1,0 +1,87 @@
+.modal-overlay {
+    background-color: rgba($color: $charcoal, $alpha: 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    z-index: 10;
+
+    .modal {
+        height: 100%;
+        overflow: scroll;
+        background-color: $white;
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: scroll;
+
+        .close-modal {
+            position: fixed;
+            right: 0;
+            margin: 10px;
+        }
+
+        .container {
+            .wrapper {
+                padding: 50px 0;
+
+
+
+
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+        /* make scrollbar transparent */
+    }
+}
+
+// =============================
+// Different Modal Contents
+// =============================
+
+#hire-me-modal-content {
+    width: 100%;
+
+    .content {
+
+        width: 100%;
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .modal-overlay {
+
+        .modal {
+            width: 450px;
+            max-height: 90vh;
+            height: unset;
+
+            .container {
+                .wrapper {
+                    padding: 50px 0;
+                }
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+            /* make scrollbar transparent */
+        }
+    }
+
+}
