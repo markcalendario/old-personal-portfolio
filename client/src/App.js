@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import ViewSingleProjectPage from './Components/Pages/ViewSingleProject';
 import { InternalErrorPage, NotFoundErrorPage, ForbiddenErrorPage } from './Components/Error/Error';
 import LoginPageCompile from './Components/Pages/LoginPage';
+import Admin from './Components/Pages/Admin';
+import AdminRouteProtect from './Components/Routes Protection/AdminRouteProtect';
 
 function App() {
 	useEffect(() => {
@@ -33,6 +35,8 @@ function App() {
 				<Route exact path='/view-project/:projectId' element={<ViewSingleProjectPage />} />
 
 				<Route exact path='/login' element={<LoginPageCompile />} />
+
+				<Route exact path='/admin' element={<AdminRouteProtect component={Admin} />} />
 
 				{/* PROTECTED ROUTES */}
 

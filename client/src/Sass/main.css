@@ -482,6 +482,7 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  z-index: 0;
 }
 .front-text-graphic h1 {
   text-transform: uppercase;
@@ -1652,7 +1653,8 @@ body {
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .title > * {
   padding: 15px;
 }
-#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies-open, #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies-close {
+#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies-open,
+#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies-close {
   transition: 1.3s ease !important;
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies-open {
@@ -1709,6 +1711,8 @@ body {
   text-align: center;
 }
 #project-topper .container .wrapper .topper-buttons {
+  position: relative;
+  z-index: 1;
   margin-top: 50px;
   display: flex;
   justify-content: center;

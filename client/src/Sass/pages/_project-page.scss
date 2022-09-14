@@ -17,12 +17,13 @@
                         align-items: center;
                         justify-content: space-between;
 
-                        & > * {
+                        &>* {
                             padding: 15px;
                         }
                     }
 
-                    .technologies-open, .technologies-close {
+                    .technologies-open,
+                    .technologies-close {
                         transition: 1.3s ease !important;
                     }
 
@@ -36,8 +37,8 @@
 
                     .technologies {
                         overflow: hidden;
-                        
-                        & > * {
+
+                        &>* {
                             color: $charcoal;
                             padding: 15px;
                         }
@@ -45,17 +46,19 @@
                         a {
                             display: block;
                             text-decoration: none;
-                            
-    
+
+
                             svg {
                                 opacity: 0;
                                 font-size: large;
                                 transform: translateX(100px);
                                 transition: 0.3s ease;
                             }
-                            
-                            &:hover, &:hover svg {
+
+                            &:hover,
+                            &:hover svg {
                                 background-color: rgba($color: $gray, $alpha: 0.2);
+
                                 svg {
                                     opacity: 1;
                                     transform: translateX(0);
@@ -68,7 +71,7 @@
             }
 
             #project-list {
-                & > * {
+                &>* {
                     margin-bottom: 30px;
                 }
 
@@ -78,7 +81,7 @@
                         align-items: center;
                         padding: 5px 0;
 
-                        & > * {
+                        &>* {
                             margin-right: 15px;
                         }
                     }
@@ -94,16 +97,19 @@
         display: flex;
         align-items: center;
         height: 100%;
-        
+
         .wrapper {
             text-align: center;
+
             .topper-buttons {
+                position: relative;
+                z-index: 1;
                 margin-top: 50px;
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
 
-                & > * {
+                &>* {
                     margin: 10px 0;
                 }
 
@@ -114,6 +120,7 @@
 
 #no-projects-found {
     text-align: center;
+
     .npf-wrapper {
         figure {
             img {
@@ -127,6 +134,7 @@
 
     #no-projects-found {
         text-align: center;
+
         .npf-wrapper {
             figure {
                 img {
@@ -139,7 +147,7 @@
     }
 
     #main-project-page {
-    
+
         .container {
             .wrapper {
 
@@ -153,7 +161,7 @@
                     top: 50px;
                     width: 25%;
                 }
-    
+
                 #project-list {
                     width: 60%;
 
@@ -168,7 +176,7 @@
     }
 
     #project-topper {
-    
+
         .container {
             .wrapper {
 
@@ -180,7 +188,7 @@
                 .topper-buttons {
                     flex-direction: row;
 
-                    & > * {
+                    &>* {
                         margin: 0 5px;
                     }
 

@@ -119,9 +119,16 @@ class RequestProjectModal extends Component {
         this.setState({ isSubmitting: true })
 
         await fetch(process.env.REACT_APP_API_URL + "/email-serve/project-request", options)
-            .then(() => {
+            .then((response) => {
+                return response.json()
+            }).then(result => {
+                if (!result.isEmailSent) {
+                    this.setState({ formResultText: "It seems that there's a problem with my emailing service." })
+                    return 0
+                }
+
                 this.setRequestResubmissionLimit()
-                this.props.changeModalVisibilityState()
+                this.props.triggerVisibility()
             })
     }
 
@@ -220,11 +227,7 @@ class RequestProjectModal extends Component {
 
                             <FormControl>
                                 <p>
-                                    <span className="orange">Attention: </span>
-                                    By submitting this form you are signing a contract with Mark Kenneth Calendario to be your partner to build your web project.
-                                </p>
-                                <p>
-                                    <span className="green">Notice to the clients: </span>
+                                    <span className="green">To clients: </span>
                                     Mark Calendario does not save any information or data to our database you put in this form.
                                 </p>
 

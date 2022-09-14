@@ -7,6 +7,7 @@
     text-align: center;
     width: 100%;
     user-select: none;
+    z-index: 0;
 
     h1 {
         text-transform: uppercase;
@@ -19,7 +20,7 @@
         transition: 0.3s ease;
         animation: front-text-graphic-animation 5s;
         animation-timing-function: ease;
-        
+
         &:nth-child(even) {
             transform: translateX(-50px);
         }
@@ -41,6 +42,7 @@
     30% {
         color: $primary-color;
     }
+
     40% {
         color: $gray;
     }
