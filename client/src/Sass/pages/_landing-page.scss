@@ -127,10 +127,15 @@ body {
 				.left {
 					position: relative;
 					text-align: center;
+					z-index: 0;
 
 					.terminal {
 						@include terminal($charcoal, $white, 400px);
-						z-index: 2;
+						z-index: 1;
+					}
+
+					.glow {
+						z-index: 0;
 					}
 				}
 

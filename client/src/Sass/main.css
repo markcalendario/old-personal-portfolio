@@ -1200,6 +1200,7 @@ body {
 #about .container .wrapper .about-goal .left {
   position: relative;
   text-align: center;
+  z-index: 0;
 }
 #about .container .wrapper .about-goal .left .terminal {
   position: relative;
@@ -1215,7 +1216,7 @@ body {
   background-repeat: no-repeat;
   transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   opacity: 0.9;
-  z-index: 2;
+  z-index: 1;
 }
 #about .container .wrapper .about-goal .left .terminal:hover {
   transform: scale(1.05);
@@ -1231,6 +1232,9 @@ body {
 #about .container .wrapper .about-goal .left .terminal .terminal-controls svg {
   float: right;
   margin-right: 20px;
+}
+#about .container .wrapper .about-goal .left .glow {
+  z-index: 0;
 }
 #about .container .wrapper .about-goal img {
   position: absolute;

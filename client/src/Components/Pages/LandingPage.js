@@ -744,7 +744,7 @@ class RequestProjectPage extends Component {
 	};
 
 	revealRequestProjectButton = () => {
-		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED !== 'false') {
+		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED === 'false') {
 			return (
 				<Button pigment={'solid-primary-btn'}>
 					Sorry. Requesting projects is not allowed at this time.

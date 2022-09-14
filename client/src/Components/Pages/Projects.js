@@ -49,7 +49,7 @@ class ProjectPageFront extends Component {
 	};
 
 	getRequestButton = () => {
-		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED !== 'false') {
+		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED === 'false') {
 			return (
 				<Button pigment={'solid-primary-btn'}>
 					Sorry, project request is not allowed at this time.
