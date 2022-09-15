@@ -728,7 +728,11 @@ class EducationAndExperience extends Component {
 								</TimelineEventDetails>
 								<TimelineEventDetails title='First Year College'>
 									<p>Polytechnic University of the Philippines</p>
+									<p>President's Lister</p>
 								</TimelineEventDetails>
+							</TimelineEvent>
+							<TimelineEvent year="2022">
+								<TimelineEventDetails title='Second Year College' />
 							</TimelineEvent>
 						</Timeline>
 					</Wrapper>
