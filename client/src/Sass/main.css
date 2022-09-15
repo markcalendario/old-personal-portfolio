@@ -43,6 +43,13 @@
   font-family: "Montserrat", sans-serif;
 }
 
+pre {
+  background-color: rgba(236, 236, 236, 0.1);
+  padding: 15px 10px;
+  border-radius: 3px;
+  overflow-x: auto;
+}
+
 code {
   font-family: "Ubuntu Mono", monospace;
 }
@@ -1736,6 +1743,7 @@ body {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #project-documentation {
@@ -1749,11 +1757,7 @@ body {
   color: #F8F8F8;
 }
 #project-documentation .container .wrapper ul li {
-  list-style-position: outside;
-  margin-left: 40px;
-}
-#project-documentation .container .wrapper p {
-  margin-left: 25px;
+  list-style-position: inside;
 }
 #project-documentation .container .wrapper h1,
 #project-documentation .container .wrapper h2,
@@ -1768,10 +1772,20 @@ body {
   font-weight: 900;
   padding: 30px 0 20px 0;
 }
+#project-documentation .container .wrapper img {
+  width: 100%;
+}
+#project-documentation .container .wrapper a {
+  color: #F8F8F8;
+}
 
 @media screen and (min-width: 768px) {
   #project-documentation .container .wrapper {
-    max-width: 800px;
+    width: 800px;
+    margin: auto;
+  }
+  #project-documentation .container .wrapper img {
+    width: 450px;
   }
   #project-banner .container .wrapper {
     display: flex;

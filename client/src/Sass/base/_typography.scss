@@ -17,6 +17,12 @@
 }
 
 // Defaults
+pre {
+    background-color: rgba($color: $gray, $alpha: 0.1);
+    padding: 15px 10px;
+    border-radius: 3px;
+    overflow-x: auto;
+}
 
 code {
     font-family: 'Ubuntu Mono', monospace;

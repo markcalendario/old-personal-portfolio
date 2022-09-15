@@ -5,6 +5,7 @@ import { TechTag } from '../Shards/TechTag';
 import Tilt from 'react-parallax-tilt';
 import { Container, Section, Wrapper } from '../Shards/Base';
 import { useParams } from 'react-router-dom';
+import { marked } from 'marked';
 
 function ViewSingleProjectPage() {
 	const [projectInformation, setProjectInformation] = useState(null);
@@ -56,7 +57,7 @@ function ViewSingleProjectPage() {
 						projectFullname={projectInformation.projectFullname}
 						projectTags={projectInformation.technologies}
 					/>
-					<ProjectDocumentation htmlDocumentation={projectInformation.projectHtml} />
+					<ProjectDocumentation markdown={projectInformation.markdown} />
 				</React.Fragment>
 			)}
 		</React.Fragment>
@@ -103,11 +104,14 @@ function ProjectBanner(props) {
 }
 
 function ProjectDocumentation(props) {
+
 	return (
 		<Section id='project-documentation'>
 			<Container>
 				<Wrapper>
-					<div dangerouslySetInnerHTML={{ __html: props.htmlDocumentation }}></div>
+					<div dangerouslySetInnerHTML={{
+						__html: marked.parse(props.markdown)
+					}}></div>
 				</Wrapper>
 			</Container>
 		</Section>
