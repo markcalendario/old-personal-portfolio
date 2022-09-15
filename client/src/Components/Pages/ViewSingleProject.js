@@ -109,7 +109,7 @@ function ProjectDocumentation(props) {
 		<Section id='project-documentation'>
 			<Container>
 				<Wrapper>
-					<div dangerouslySetInnerHTML={{
+					<div className="content" dangerouslySetInnerHTML={{
 						__html: marked.parse(props.markdown)
 					}}></div>
 				</Wrapper>

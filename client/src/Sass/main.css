@@ -1756,35 +1756,35 @@ body {
   width: auto;
   color: #F8F8F8;
 }
-#project-documentation .container .wrapper ul li {
+#project-documentation .container .wrapper .content ul li {
   list-style-position: inside;
 }
-#project-documentation .container .wrapper h1,
-#project-documentation .container .wrapper h2,
-#project-documentation .container .wrapper h3,
-#project-documentation .container .wrapper h4,
-#project-documentation .container .wrapper h5,
-#project-documentation .container .wrapper h6 {
+#project-documentation .container .wrapper .content h1,
+#project-documentation .container .wrapper .content h2,
+#project-documentation .container .wrapper .content h3,
+#project-documentation .container .wrapper .content h4,
+#project-documentation .container .wrapper .content h5,
+#project-documentation .container .wrapper .content h6 {
   background-image: linear-gradient(to right, rgb(67, 107, 226), rgb(245, 50, 83));
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 900;
-  padding: 30px 0 20px 0;
+  margin: 33px 0;
 }
-#project-documentation .container .wrapper img {
+#project-documentation .container .wrapper .content img {
   width: 100%;
 }
-#project-documentation .container .wrapper a {
+#project-documentation .container .wrapper .content a {
   color: #F8F8F8;
 }
 
 @media screen and (min-width: 768px) {
-  #project-documentation .container .wrapper {
+  #project-documentation .container .wrapper .content {
     width: 800px;
     margin: auto;
   }
-  #project-documentation .container .wrapper img {
+  #project-documentation .container .wrapper .content img {
     width: 450px;
   }
   #project-banner .container .wrapper {

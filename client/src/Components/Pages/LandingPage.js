@@ -120,7 +120,7 @@ function Front() {
 							/>
 
 							<LinkButton pigment='solid-stable-btn'>
-								<Link to='/projects'> View my projects </Link>
+								<a href='/projects'> View my projects </a>
 							</LinkButton>
 
 							<div className='contacts'>
@@ -572,6 +572,10 @@ function FeaturedProjects() {
 							As an aspiring fullstack developer, I am considering this as my success and a
 							steping stone to achieve my goals.
 						</p>
+
+						<LinkButton pigment='solid-stable-btn'>
+							<a href='/projects'> View my projects </a>
+						</LinkButton>
 					</div>
 
 					<div className='projects'>
