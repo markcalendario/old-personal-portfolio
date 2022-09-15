@@ -983,11 +983,6 @@ footer .container .wrapper .notice p {
 .modal-overlay .modal .container .wrapper {
   padding: 50px 0;
 }
-.modal-overlay ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-  /* make scrollbar transparent */
-}
 
 #hire-me-modal-content {
   width: 100%;
@@ -997,8 +992,8 @@ footer .container .wrapper .notice p {
   text-align: center;
 }
 #hire-me-modal-content .content img {
-  width: 100%;
-  height: 200px;
+  width: 100px;
+  margin: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -1009,11 +1004,6 @@ footer .container .wrapper .notice p {
   }
   .modal-overlay .modal .container .wrapper {
     padding: 50px 0;
-  }
-  .modal-overlay ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-    /* make scrollbar transparent */
   }
 }
 .banner {
@@ -1033,6 +1023,26 @@ footer .container .wrapper .notice p {
     height: 630px;
   }
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f1f1f1 rgb(27, 27, 27);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1;
+  border-radius: 1px;
+  border: 2px none #ffffff;
+}
+
 body {
   background-color: #F9F9F9;
 }
