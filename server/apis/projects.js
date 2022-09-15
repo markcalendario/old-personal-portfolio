@@ -106,4 +106,16 @@ router.get('/featured-projects', async (req, res) => {
 		});
 });
 
+// Technology Options
+router.get('/tech-options', async (req, res) => {
+	const db = await DBConnection()
+	db.db('portfolio')
+		.collection('projects')
+		.distinct('technologies', (error, result) => {
+			db.close()
+			if (error) return res.send({ error: true, message: "Couldn't get tech options" })
+			return res.send({ error: false, message: "Tech options fetched", techOptions: result })
+		})
+})
+
 module.exports = router;
