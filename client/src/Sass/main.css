@@ -198,20 +198,6 @@ p {
     width: 100%;
   }
 }
-.banner {
-  height: 600px;
-  overflow: hidden;
-  background-color: rgb(27, 27, 27);
-  color: #F8F8F8;
-  overflow: hidden;
-  position: relative;
-}
-
-@media screen and (min-width: 768px) {
-  .banner {
-    height: 630px;
-  }
-}
 input[type=email],
 input[type=password],
 input[type=text],
@@ -1030,6 +1016,23 @@ footer .container .wrapper .notice p {
     /* make scrollbar transparent */
   }
 }
+.banner {
+  height: 600px;
+  overflow: hidden;
+  background-color: rgb(27, 27, 27);
+  color: #F8F8F8;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../Images/landingpage/Wide-Graphical.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    height: 630px;
+  }
+}
 body {
   background-color: #F9F9F9;
 }
@@ -1253,6 +1256,9 @@ body {
 }
 #featured-projects .container .wrapper .texters a {
   text-decoration: none;
+}
+#featured-projects .container .wrapper .texters button {
+  width: 100%;
 }
 #featured-projects .container .wrapper .projects > * {
   margin: 0 0 30px 0;

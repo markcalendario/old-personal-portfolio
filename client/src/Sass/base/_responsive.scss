@@ -131,18 +131,3 @@
 		width: 100%;
 	}
 }
-
-.banner {
-	height: 600px;
-	overflow: hidden;
-	background-color: $charcoal;
-	color: $white;
-	overflow: hidden;
-	position: relative;
-}
-
-@media screen and (min-width: 768px) {
-	.banner {
-		height: 630px;
-	}
-}
