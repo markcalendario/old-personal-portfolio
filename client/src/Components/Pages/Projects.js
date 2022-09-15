@@ -110,7 +110,7 @@ function ProjectNavigator() {
 	function displayOptions() {
 		if (technologyOptions === null) return <a href='/projects/#loading'>Loading...</a>
 		return technologyOptions.map(element => (
-			<a href={`/projects/${element}`}>{element}</a>
+			<a href={`/projects/${element}`}>{element.toUpperCase()}</a>
 		));
 	}
 
@@ -135,7 +135,7 @@ function ProjectNavigator() {
 					<h4>Choose a Technology</h4>
 				</div>
 				<div className={'technologies ' + (isTechnologiesChoicesOpen ? 'technologies-open' : 'technologies-close')}>
-					<a href='/projects/all'>All</a>
+					<a href='/projects/all'>Show All</a>
 					{displayOptions()}
 				</div>
 			</div>

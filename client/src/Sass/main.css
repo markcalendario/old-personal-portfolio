@@ -1614,14 +1614,17 @@ body {
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies {
   overflow: hidden;
+  max-height: 80vh;
+  overflow-y: scroll;
 }
-#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies > * {
-  color: rgb(27, 27, 27);
-  padding: 15px;
+#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover {
+  background-color: rgb(236, 236, 236);
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a {
   display: block;
   text-decoration: none;
+  color: rgb(27, 27, 27);
+  padding: 15px;
 }
 #main-project-page .container .wrapper #project-list > * {
   margin-bottom: 30px;

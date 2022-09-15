@@ -25,7 +25,6 @@
                         &>* {
                             padding: 15px;
                         }
-
                     }
 
                     .technologies-open,
@@ -43,15 +42,18 @@
 
                     .technologies {
                         overflow: hidden;
+                        max-height: 80vh;
+                        overflow-y: scroll;
 
-                        &>* {
-                            color: $charcoal;
-                            padding: 15px;
+                        a:hover {
+                            background-color: $gray;
                         }
 
                         a {
                             display: block;
                             text-decoration: none;
+                            color: $charcoal;
+                            padding: 15px;
                         }
                     }
                 }
