@@ -110,7 +110,7 @@ function ProjectNavigator() {
 	function displayOptions() {
 		if (technologyOptions === null) return <a href='/projects/#loading'>Loading...</a>
 		return technologyOptions.map(element => (
-			<a href={`/projects/${element}`}>{element.toUpperCase()}</a>
+			<a key={element} href={`/projects/${element}`}>{element.toUpperCase()}</a>
 		));
 	}
 
