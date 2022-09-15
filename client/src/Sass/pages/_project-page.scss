@@ -42,7 +42,7 @@
 
                     .technologies {
                         overflow: hidden;
-                        max-height: 80vh;
+                        max-height: 40vh;
                         overflow-y: scroll;
 
                         a:hover {
@@ -148,6 +148,12 @@
                     position: sticky;
                     top: 50px;
                     width: 25%;
+
+                    .project-lang-choices {
+                        .technologies {
+                            max-height: 80vh;
+                        }
+                    }
                 }
 
                 #project-list {

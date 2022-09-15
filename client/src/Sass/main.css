@@ -1617,7 +1617,7 @@ body {
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies {
   overflow: hidden;
-  max-height: 80vh;
+  max-height: 40vh;
   overflow-y: scroll;
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover {
@@ -1686,6 +1686,9 @@ body {
     position: sticky;
     top: 50px;
     width: 25%;
+  }
+  #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies {
+    max-height: 80vh;
   }
   #main-project-page .container .wrapper #project-list {
     width: 60%;
