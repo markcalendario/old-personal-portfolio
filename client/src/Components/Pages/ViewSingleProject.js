@@ -71,10 +71,6 @@ function ProjectBanner(props) {
 	return (
 		<section id='project-banner' className='banner'>
 			<div className='container'>
-				<div className='front-text-graphic'>
-					<h1 className='display-2'>PROJECT</h1>
-					<h1 className='display-2'>{props.projectShortName}</h1>
-				</div>
 				<div className='wrapper'>
 					<figure>
 						<Tilt

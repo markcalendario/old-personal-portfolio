@@ -199,9 +199,10 @@ p {
   overflow: hidden;
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .banner {
-    height: 500px;
+    height: 630px;
   }
 }
 input[type=email],
@@ -472,84 +473,6 @@ html {
   font-size: 12px;
 }
 
-.front-text-graphic {
-  position: absolute;
-  overflow: hidden;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  text-align: center;
-  width: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  z-index: 0;
-}
-.front-text-graphic h1 {
-  text-transform: uppercase;
-  font-size: 180px;
-  font-weight: 1000;
-  color: #1f1f1f;
-  text-shadow: -1px 0 #F8F8F8, 0 1px #F8F8F8, 1px 0 #F8F8F8, 0 -1px #F8F8F8;
-  opacity: 0.1;
-  letter-spacing: 0.3em;
-  transition: 0.3s ease;
-  -webkit-animation: front-text-graphic-animation 5s;
-          animation: front-text-graphic-animation 5s;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-}
-.front-text-graphic h1:nth-child(even) {
-  transform: translateX(-50px);
-}
-.front-text-graphic h1:nth-child(odd) {
-  transform: translateX(50px);
-}
-
-@-webkit-keyframes front-text-graphic-animation {
-  from {
-    letter-spacing: unset;
-  }
-  30% {
-    color: #1f1f1f;
-  }
-  40% {
-    color: rgb(236, 236, 236);
-  }
-  60% {
-    letter-spacing: unset;
-  }
-  80% {
-    letter-spacing: 0.3em;
-    color: rgb(236, 236, 236);
-  }
-  85% {
-    color: #1f1f1f;
-  }
-}
-
-@keyframes front-text-graphic-animation {
-  from {
-    letter-spacing: unset;
-  }
-  30% {
-    color: #1f1f1f;
-  }
-  40% {
-    color: rgb(236, 236, 236);
-  }
-  60% {
-    letter-spacing: unset;
-  }
-  80% {
-    letter-spacing: 0.3em;
-    color: rgb(236, 236, 236);
-  }
-  85% {
-    color: #1f1f1f;
-  }
-}
 .proj-link {
   text-decoration: none;
   display: block;
@@ -1660,11 +1583,19 @@ body {
   margin-bottom: 50px;
   border: 1px rgb(216, 216, 216) solid;
   box-shadow: rgba(216, 216, 216, 0.15) 0px 8px 24px;
+  overflow: hidden;
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .title {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(27, 27, 27);
+  color: #F8F8F8;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .title > * {
   padding: 15px;
@@ -1692,20 +1623,6 @@ body {
   display: block;
   text-decoration: none;
 }
-#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a svg {
-  opacity: 0;
-  font-size: large;
-  transform: translateX(100px);
-  transition: 0.3s ease;
-}
-#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover, #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover svg {
-  background-color: rgba(236, 236, 236, 0.2);
-}
-#main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover svg, #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover svg svg {
-  opacity: 1;
-  transform: translateX(0);
-  background-color: transparent;
-}
 #main-project-page .container .wrapper #project-list > * {
   margin-bottom: 30px;
 }
@@ -1728,7 +1645,6 @@ body {
 }
 #project-topper .container .wrapper .topper-buttons {
   position: relative;
-  z-index: 1;
   margin-top: 50px;
   display: flex;
   justify-content: center;
@@ -1803,6 +1719,9 @@ body {
   margin-top: 20px;
   text-align: center;
   color: #F8F8F8;
+}
+#project-banner .container .wrapper .texter h1 {
+  font-weight: 1000;
 }
 #project-banner .container .wrapper .texter .project-technologies {
   margin-top: 20px;

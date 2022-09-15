@@ -1,7 +1,5 @@
 import React, { Component, Fragment, useCallback, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { useParams } from 'react-router-dom';
 import { PrimaryNavbar } from '../Shards/Navbar';
 import { Project } from '../Shards/Projects';
 import { ProjectLoader } from '../Shards/Loaders';
@@ -12,18 +10,7 @@ import Footer from '../Shards/Footer';
 
 import NotFoundIllustration from '../../Images/error/404.svg';
 
-import {
-	faCss3Alt,
-	faHtml5,
-	faJs,
-	faNodeJs,
-	faPhp,
-	faReact,
-	faSass,
-} from '@fortawesome/free-brands-svg-icons';
-import { faCode, faFish, faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '../Shards/Buttons';
-import technologiesList from '../../Functions/technologies-list';
 
 export default function ProjectPage() {
 	const { technologyFilter } = useParams();
@@ -93,12 +80,6 @@ class ProjectPageFront extends Component {
 							</div>
 						</div>
 					</div>
-					<div className='front-text-graphic'>
-						<div>
-							<h1 className='display-1'>Project</h1>
-							<h1 className='display-1'>Project</h1>
-						</div>
-					</div>
 				</section>
 			</>
 		);
@@ -120,10 +101,32 @@ function MainProjectPage(props) {
 
 function ProjectNavigator() {
 	const [isTechnologiesChoicesOpen, setIsTechnologiesChoicesOpen] = useState(true)
+	const [technologyOptions, setTechnologyOptions] = useState(null)
 
-	const handleTechnologyChoicesState = () => {
+	function handleTechnologyChoicesState() {
 		setIsTechnologiesChoicesOpen(prev => !prev)
-	};
+	}
+
+	function displayOptions() {
+		if (technologyOptions === null) return <a href='/projects/#loading'>Loading...</a>
+		return technologyOptions.map(element => (
+			<a href={`/projects/${element}`}>{element}</a>
+		));
+	}
+
+	const fetchTechnologyOptions = useCallback(() => {
+		fetch(process.env.REACT_APP_API_URL + "/projects/tech-options", {
+			method: 'GET'
+		}).then(response => {
+			return response.json()
+		}).then(result => {
+			setTechnologyOptions(result.techOptions)
+		})
+	}, [])
+
+	useEffect(() => {
+		fetchTechnologyOptions()
+	}, [fetchTechnologyOptions])
 
 	return (
 		<div className='projects-navigator'>
@@ -131,54 +134,9 @@ function ProjectNavigator() {
 				<div className='title' onClick={handleTechnologyChoicesState}>
 					<h4>Choose a Technology</h4>
 				</div>
-				<div
-					className={
-						'technologies ' +
-						(isTechnologiesChoicesOpen
-							? 'technologies-open'
-							: 'technologies-close')
-					}
-				>
-					<a href='/projects/all'>
-						All <FontAwesomeIcon icon={faNodeJs} />
-						<FontAwesomeIcon icon={faReact} />
-						<FontAwesomeIcon icon={faCode} />
-						<FontAwesomeIcon icon={faLeaf} />
-						<FontAwesomeIcon icon={faPhp} />
-						<FontAwesomeIcon icon={faNodeJs} />
-						<FontAwesomeIcon icon={faHtml5} />
-						<FontAwesomeIcon icon={faCss3Alt} />
-						<FontAwesomeIcon icon={faSass} />
-						<FontAwesomeIcon icon={faFish} />
-					</a>
-					<a href={`/projects/` + technologiesList.nodejs}>
-						Node JS <FontAwesomeIcon icon={faNodeJs} />
-					</a>
-					<a href={'/projects/' + technologiesList.reactjs}>
-						React JS <FontAwesomeIcon icon={faReact} />
-					</a>
-					<a href={'/projects/' + technologiesList.expressjs}>
-						Express JS <FontAwesomeIcon icon={faCode} />
-					</a>
-					<a href={'/projects/' + technologiesList.mongodb}>
-						Mongo DB <FontAwesomeIcon icon={faLeaf} />
-					</a>
-					<a href={'/projects/' + technologiesList.php}>
-						PHP <FontAwesomeIcon icon={faPhp} />
-					</a>
-					<a href={'/projects/' + technologiesList.html}>
-						HTML <FontAwesomeIcon icon={faHtml5} />
-					</a>
-					<a href={'/projects/' + technologiesList.css}>
-						CSS / SASS <FontAwesomeIcon icon={faCss3Alt} />
-						<FontAwesomeIcon icon={faSass} />
-					</a>
-					<a href={'/projects/' + technologiesList.javascript}>
-						Javascript <FontAwesomeIcon icon={faJs} />
-					</a>
-					<a href={'/projects/' + technologiesList.mysql}>
-						MySQL <FontAwesomeIcon icon={faFish} />
-					</a>
+				<div className={'technologies ' + (isTechnologiesChoicesOpen ? 'technologies-open' : 'technologies-close')}>
+					<a href='/projects/all'>All</a>
+					{displayOptions()}
 				</div>
 			</div>
 		</div>

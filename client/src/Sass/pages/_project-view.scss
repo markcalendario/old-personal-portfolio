@@ -10,6 +10,7 @@
 			figure {
 				width: 200px;
 				margin: auto;
+
 				img {
 					width: 100%;
 				}
@@ -19,6 +20,10 @@
 				margin-top: 20px;
 				text-align: center;
 				color: $white;
+
+				h1 {
+					font-weight: 1000;
+				}
 
 				.project-technologies {
 					margin-top: 20px;
@@ -35,17 +40,21 @@
 	min-height: 100vh;
 	background-color: $charcoal;
 	border-top: 2px $white solid;
+
 	.container {
 		.wrapper {
 			width: auto;
 			color: $white;
+
 			ul li {
 				list-style-position: outside;
 				margin-left: 40px;
 			}
+
 			p {
 				margin-left: 25px;
 			}
+
 			h1,
 			h2,
 			h3,
@@ -86,6 +95,7 @@
 
 				figure {
 					margin: unset;
+
 					img {
 						width: 80%;
 					}

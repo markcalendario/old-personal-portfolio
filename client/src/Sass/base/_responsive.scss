@@ -139,14 +139,10 @@
 	color: $white;
 	overflow: hidden;
 	position: relative;
-
-	.container {
-		.wrapper {}
-	}
 }
 
 @media screen and (min-width: 768px) {
 	.banner {
-		height: 500px;
+		height: 630px;
 	}
 }

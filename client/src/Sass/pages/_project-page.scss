@@ -9,17 +9,23 @@
                 margin-bottom: 50px;
                 border: 1px $gray3 solid;
                 @include shadow($gray3);
+                overflow: hidden;
 
                 .project-lang-choices {
 
                     .title {
+                        cursor: pointer;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
+                        background-color: $charcoal;
+                        color: $white;
+                        user-select: none;
 
                         &>* {
                             padding: 15px;
                         }
+
                     }
 
                     .technologies-open,
@@ -46,25 +52,6 @@
                         a {
                             display: block;
                             text-decoration: none;
-
-
-                            svg {
-                                opacity: 0;
-                                font-size: large;
-                                transform: translateX(100px);
-                                transition: 0.3s ease;
-                            }
-
-                            &:hover,
-                            &:hover svg {
-                                background-color: rgba($color: $gray, $alpha: 0.2);
-
-                                svg {
-                                    opacity: 1;
-                                    transform: translateX(0);
-                                    background-color: transparent;
-                                }
-                            }
                         }
                     }
                 }
@@ -103,7 +90,6 @@
 
             .topper-buttons {
                 position: relative;
-                z-index: 1;
                 margin-top: 50px;
                 display: flex;
                 justify-content: center;
