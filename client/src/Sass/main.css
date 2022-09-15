@@ -479,7 +479,7 @@ html {
 }
 .proj-link .project-card {
   background-color: #1f1f1f;
-  padding: 20px;
+  padding: 35px 20px;
   border-radius: 7px;
 }
 .proj-link .project-card .inner-container {
@@ -494,9 +494,12 @@ html {
   color: #F8F8F8;
 }
 .proj-link .project-card .inner-container .texts .shortname {
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 1000;
   margin-top: unset;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .proj-link .project-card .inner-container .texts .fullname {
   line-height: 20px;

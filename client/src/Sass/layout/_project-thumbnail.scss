@@ -4,7 +4,7 @@
 
     .project-card {
         background-color: $primary-color;
-        padding: 20px;
+        padding: 35px 20px;
         border-radius: 7px;
 
         .inner-container {
@@ -23,9 +23,12 @@
                 }
 
                 .shortname {
-                    font-size: 40px;
+                    font-size: 28px;
                     font-weight: 1000;
                     margin-top: unset;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 .fullname {
