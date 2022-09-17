@@ -1,8 +1,6 @@
-
-
 export function Capsule(props) {
     return (
-        <div onMouseEnter={props.onMouseEnter} className="capsule-white">
+        <div onMouseEnter={props.onMouseEnter ? props.onMouseEnter : null} className="capsule-white">
             <div className="capsule-content">
                 <div className="capsule-icon">
                     {props.icon}

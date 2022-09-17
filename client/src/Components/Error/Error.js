@@ -1,95 +1,83 @@
-import { Component } from "react";
-
 import NotFoundIllustration from "../../Images/error/404.svg";
 import ForbiddenIllustaration from "../../Images/error/403.svg";
 import InternalErrorIllustration from "../../Images/error/500.svg";
-
+import { Fragment, useEffect } from "react";
 import { PrimaryNavbar } from "../Shards/Navbar";
 import Footer from "../Shards/Footer";
 
-class InternalErrorPage extends Component {
+export function InternalErrorPage() {
 
-    componentDidMount() {
+    useEffect(() => {
         document.title = "Internal Error Occured"
-    }
+    }, [])
 
-    render() {
-        return (
-            <>
-                <PrimaryNavbar />
-                <Error
-                    illustration={InternalErrorIllustration}
-                    errorText='{ status: 500, message: "Internal Error Occured" }'
-                    paragraphText="This is my fault, not yours. I apologize for the inconvinience, thank you!"
-                />
-            </>
-        )
-    }
+    return (
+        <Fragment>
+            <PrimaryNavbar />
+            <Error
+                illustration={InternalErrorIllustration}
+                errorText='{ status: 500, message: "Internal Error Occured" }'
+                paragraphText="This is my fault, not yours. I apologize for the inconvinience, thank you!"
+            />
+        </Fragment>
+    )
 }
 
-class NotFoundErrorPage extends Component {
+export function NotFoundErrorPage() {
 
-    componentDidMount() {
+    useEffect(() => {
         document.title = "Not Found"
-    }
+    }, [])
 
-    render() {
-        return (
-            <>
-                <PrimaryNavbar />
-                <Error
-                    illustration={NotFoundIllustration}
-                    errorText='{ status: 404, message: "Not Found" }'
-                    paragraphText="I do not have any results for the page that you have requested."
-                />
-            </>
-        )
-    }
+    return (
+        <Fragment>
+            <PrimaryNavbar />
+            <Error
+                illustration={NotFoundIllustration}
+                errorText='{ status: 404, message: "Not Found" }'
+                paragraphText="I do not have any results for the page that you have requested."
+            />
+        </Fragment>
+    )
 }
 
-class ForbiddenErrorPage extends Component {
+export function ForbiddenErrorPage() {
 
-    componentDidMount() {
+    useEffect(() => {
         document.title = "Forbidden"
-    }
+    }, [])
 
-    render() {
-        return (
-            <>
-                <PrimaryNavbar />
-                <Error
-                    illustration={ForbiddenIllustaration}
-                    errorText='{ status: 403, message: "Forbidden" }'
-                    paragraphText="You do not have any permission to access this page."
-                />
-            </>
-        )
-    }
+    return (
+        <Fragment>
+            <PrimaryNavbar />
+            <Error
+                illustration={ForbiddenIllustaration}
+                errorText='{ status: 403, message: "Forbidden" }'
+                paragraphText="You do not have any permission to access this page."
+            />
+        </Fragment>
+    )
 }
 
-class Error extends Component {
-    render() {
-        return (
-            <>
-                <section id="error">
-                    <div className="container">
-                        <div className="wrapper">
-                            <div className="content">
-                                <figure>
-                                    <img src={this.props.illustration} alt="Error" />
-                                </figure>
-                                <div className="texters">
-                                    <code>{this.props.errorText}</code>
-                                    <p>{this.props.paragraphText}</p>
-                                </div>
+export function Error(props) {
+    return (
+        <Fragment>
+            <section id="error">
+                <div className="container">
+                    <div className="wrapper">
+                        <div className="content">
+                            <figure>
+                                <img src={props.illustration} alt="Error" />
+                            </figure>
+                            <div className="texters">
+                                <code>{props.errorText}</code>
+                                <p>{props.paragraphText}</p>
                             </div>
                         </div>
                     </div>
-                </section>
-                <Footer />
-            </>
-        )
-    }
+                </div>
+            </section>
+            <Footer />
+        </Fragment>
+    )
 }
-
-export { InternalErrorPage, NotFoundErrorPage, ForbiddenErrorPage };

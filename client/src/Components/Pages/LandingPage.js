@@ -1,59 +1,5 @@
-import { Component, useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-// ==============================
-// Modules
-// ==============================
-import Typewriter from 'typewriter-effect';
-
-// ==============================
-// Fontawesome Icons
-// ==============================
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faCss3,
-	faDev,
-	faFacebook,
-	faGithub,
-	faGithubAlt,
-	faHtml5,
-	faInstagram,
-	faJs,
-	faNodeJs,
-	faPhp,
-	faReact,
-	faSass,
-	faWindows,
-} from '@fortawesome/free-brands-svg-icons';
-
-import {
-	faCircle,
-	faCode,
-	faDatabase,
-	faExclamationCircle,
-	faFeather,
-	faGraduationCap,
-	faLeaf,
-	faMedal,
-	faPaintRoller,
-} from '@fortawesome/free-solid-svg-icons';
-
-// ==============================
-// Images
-// ==============================
-
-import AboutMeImage from '../../Images/landingpage/Mark Kenneth Graphic - About.png';
-import glow from '../../Images/landingpage/Glow.png';
-import PartnerGraphic from '../../Images/landingpage/partner.svg';
-import FrontEndGraphic from '../../Images/landingpage/web-design.gif';
-import BackEndGraphic from '../../Images/landingpage/back-end.gif';
-import DatabaseGraphic from '../../Images/landingpage/database-management.gif';
-
-// ==============================
-// Components
-// ==============================
-
+import { Fragment, useCallback, useEffect, useState } from 'react';
+import Footer from '../Shards/Footer';
 import { Section, Container, Wrapper } from '../Shards/Base';
 import { Button, IconButton, LinkButton } from '../Shards/Buttons';
 import { PrimaryNavbar, SecondaryNavbar } from '../Shards/Navbar';
@@ -62,8 +8,43 @@ import { RequestProjectModal } from '../Shards/Modals';
 import { isUserAlreadySubmittedRequest } from '../../Functions/user-local-data';
 import { Project } from '../Shards/Projects';
 import { Capsule } from '../Shards/Capsules';
-import Footer from '../Shards/Footer';
 import { Timeline, TimelineEvent, TimelineEventDetails } from '../Shards/Timeline';
+
+import Typewriter from 'typewriter-effect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faDev,
+	faFacebook,
+	faGithubAlt,
+	faInstagram,
+	faNodeJs,
+	faPhp,
+	faReact,
+	faUbuntu,
+	faWindows,
+} from '@fortawesome/free-brands-svg-icons';
+
+import {
+	faCircle,
+	faCode,
+	faCube,
+	faDatabase,
+	faE,
+	faExclamationCircle,
+	faFeather,
+	faGraduationCap,
+	faLeaf,
+	faMedal,
+	faN,
+	faPaintRoller,
+} from '@fortawesome/free-solid-svg-icons';
+
+import AboutMeImage from '../../Images/landingpage/Mark Kenneth Graphic - About.png';
+import glow from '../../Images/landingpage/Glow.png';
+import PartnerGraphic from '../../Images/landingpage/partner.svg';
+import FrontEndGraphic from '../../Images/landingpage/web-design.gif';
+import BackEndGraphic from '../../Images/landingpage/back-end.gif';
+import DatabaseGraphic from '../../Images/landingpage/database-management.gif';
 
 export default function LandingPage() {
 
@@ -72,7 +53,7 @@ export default function LandingPage() {
 	}, []);
 
 	return (
-		<>
+		<Fragment>
 			<PrimaryNavbar />
 			<Front />
 			<QuickOverview />
@@ -84,13 +65,13 @@ export default function LandingPage() {
 			<Services />
 			<RequestProjectPage />
 			<Footer />
-		</>
+		</Fragment>
 	);
 }
 
 function Front() {
 	return (
-		<>
+		<Fragment>
 			<Section id='landing-page'>
 				<Container>
 					<Wrapper>
@@ -140,7 +121,7 @@ function Front() {
 					</Wrapper>
 				</Container>
 			</Section>
-		</>
+		</Fragment>
 	);
 }
 
@@ -215,9 +196,9 @@ function QuickOverview() {
 function About() {
 	const [age, setAge] = useState(0);
 
-	const getAge = useCallback((birthday) => {
+	const getAge = useCallback(() => {
 		const currentDate = new Date();
-		const birthDate = new Date(birthday);
+		const birthDate = new Date('October 19, 2002');
 
 		let age = currentDate.getFullYear() - birthDate.getFullYear();
 
@@ -244,14 +225,14 @@ function About() {
 	}, []);
 
 	useEffect(() => {
-		getAge('October 19, 2002');
+		getAge();
 		window.addEventListener('scroll', applyParallaxEffect, false);
 
 		return () => window.removeEventListener('scroll', applyParallaxEffect, false);
 	}, [getAge, applyParallaxEffect]);
 
 	return (
-		<Section id={'about'}>
+		<Section id='about'>
 			<Container>
 				<Wrapper>
 					<div className='about-intro'>
@@ -345,187 +326,124 @@ function About() {
 	);
 }
 
-class Expertise extends Component {
-	constructor(props) {
-		super(props);
+function Expertise() {
+	// const expertiseGraphicData = {
+	// 	mongodb: { icon: faLeaf, color: '#3FA037' },
+	// 	express: { icon: faE, color: '#1b1b1b' },
+	// 	react: { icon: faReact, color: '#61DBFB' },
+	// 	nodejs: { icon: faReact, color: '#61DBFB' },
+	// }
 
-		this.graphicModule = [
-			[faLeaf, '#4DB33D'],
-			[faCode, 'white'],
-			[faReact, '#61dbfb'],
-			[faNodeJs, '#68A063'],
-			[faWindows, '#a3a7ab'],
-			[faLeaf, 'violet'],
-			[faDatabase, 'white'],
-			[faPhp, '#8993be'],
-			[faHtml5, 'orange'],
-			[faSass, '#264de4'],
-			[faJs, '#f0db4f'],
-			[faGithub, 'white'],
-		];
+	return (
+		<Section id='expertise'>
+			<Container>
+				<Wrapper>
+					<div className='left'>
+						<h1 className='display-1'>I am currently mastering these technologies.</h1>
+						<div className='horizontal-line'></div>
 
-		this.state = {
-			isCapsuleHoveredByUser: false,
+						<p>
+							The two most popular stacks in the field of web development, the MERN{' '}
+							<span className='gray'>(MongoDB, Express JS, React and Node JS)</span> and
+							WAMP <span className='gray'>(Windows, Apache, MySQL and PHP)</span> stacks.
+						</p>
+					</div>
 
-			currentGraphic: 0,
-			icon: this.graphicModule[0][0],
-			color: this.graphicModule[0][1],
-		};
-	}
+					<div className='right'>
 
-	componentDidMount() {
-		this.changeGraphicAuto();
-		this.graphicAutoChange = setInterval(this.changeGraphicAuto, 2000);
-	}
+						<div className='content'>
+							<h4 className='divider-text'>MERN Stack / My Current Stack</h4>
 
-	componentWillUnmount() {
-		clearInterval(this.graphicAutoChange);
-	}
+							<div className='capsule-group'>
+								<Capsule
+									text='Mongo DB'
+									icon={<FontAwesomeIcon icon={faLeaf} />}
+								/>
 
-	changeGraphicAuto = () => {
-		this.setState({
-			icon: this.graphicModule[this.state.currentGraphic][0],
-			color: this.graphicModule[this.state.currentGraphic][1],
-		});
+								<Capsule
+									text='Express JS'
+									icon={<FontAwesomeIcon icon={faE} />}
+								/>
 
-		// LOOP CHANGES
-		if (this.state.currentGraphic < this.graphicModule.length - 1) {
-			this.setState({ currentGraphic: this.state.currentGraphic + 1 });
-		} else {
-			this.setState({ currentGraphic: 0 });
-		}
-	};
+								<Capsule
+									text='React JS'
+									icon={<FontAwesomeIcon icon={faReact} />}
+								/>
 
-	changeGraphic = (moduleNumber) => {
-		this.setState({
-			icon: this.graphicModule[moduleNumber][0],
-			color: this.graphicModule[moduleNumber][1],
-		});
-	};
+								<Capsule
+									text='Node JS'
+									icon={<FontAwesomeIcon icon={faNodeJs} />}
+								/>
+							</div>
 
-	render() {
-		return (
-			<Section id={'expertise'}>
-				<Container>
-					<Wrapper>
-						<div className='left'>
-							<h1 className='display-1'>I am currently mastering these technologies.</h1>
-							<div className='horizontal-line'></div>
+							<h4 className='divider-text'>WAMP Stack / My Old Stack</h4>
 
-							<p>
-								The two most popular stacks in the field of web development, the MERN{' '}
-								<span className='gray'>(MongoDB, Express JS, React and Node JS)</span> and
-								WAMP <span className='gray'>(Windows, Apache, MySQL and PHP)</span> stacks.
-							</p>
-						</div>
+							<div className='capsule-group'>
+								<Capsule
+									text='Windows'
+									icon={<FontAwesomeIcon icon={faWindows} />}
+								/>
 
-						<div className='right'>
-							<FontAwesomeIcon
-								className='graphic'
-								icon={this.state.icon}
-								style={{ color: this.state.color }}
-							/>
+								<Capsule
+									text='Apache'
+									icon={<FontAwesomeIcon icon={faFeather} />}
+								/>
 
-							<div className='content'>
-								<h4 className='divider-text'>MERN Stack</h4>
+								<Capsule
+									text='MySQL'
+									icon={<FontAwesomeIcon icon={faDatabase} />}
+								/>
 
-								<div className='capsule-compilation'>
-									<Capsule
-										text='Mongo DB'
-										icon={<FontAwesomeIcon icon={faLeaf} />}
-										onMouseEnter={() => this.changeGraphic(0)}
-									/>
+								<Capsule
+									text='PHP'
+									icon={<FontAwesomeIcon icon={faPhp} />}
+								/>
+							</div>
 
-									<Capsule
-										text='Express JS'
-										icon={<FontAwesomeIcon icon={faJs} />}
-										onMouseEnter={() => this.changeGraphic(1)}
-									/>
+							<h4 className='divider-text'>Deployment</h4>
 
-									<Capsule
-										text='React JS'
-										icon={<FontAwesomeIcon icon={faJs} />}
-										onMouseEnter={() => this.changeGraphic(2)}
-									/>
+							<div className='capsule-group'>
+								<Capsule
+									text='NGINX'
+									icon={<FontAwesomeIcon icon={faN} />}
+								/>
+								<Capsule
+									text='Ubuntu'
+									icon={<FontAwesomeIcon icon={faUbuntu} />}
+								/>
+								<Capsule
+									text='PM2'
+									icon={<FontAwesomeIcon icon={faCube} />}
+								/>
+							</div>
 
-									<Capsule
-										text='Node JS'
-										icon={<FontAwesomeIcon icon={faNodeJs} />}
-										onMouseEnter={() => this.changeGraphic(3)}
-									/>
-								</div>
+							<h4 className='divider-text'>Working Environment</h4>
 
-								<h4 className='divider-text'>WAMP Stack</h4>
+							<div className='capsule-group'>
+								<Capsule
+									text='Windows 10'
+									icon={<FontAwesomeIcon icon={faWindows} />}
+								/>
+								<Capsule
+									text='Visual Studio Code'
+									icon={<FontAwesomeIcon icon={faCode} />}
+								/>
+							</div>
 
-								<div className='capsule-compilation'>
-									<Capsule
-										text='Windows'
-										icon={<FontAwesomeIcon icon={faWindows} />}
-										onMouseEnter={() => this.changeGraphic(4)}
-									/>
+							<h4 className='divider-text'>Repository</h4>
 
-									<Capsule
-										text='Apache'
-										icon={<FontAwesomeIcon icon={faFeather} />}
-										onMouseEnter={() => this.changeGraphic(5)}
-									/>
-
-									<Capsule
-										text='MySQL'
-										icon={<FontAwesomeIcon icon={faDatabase} />}
-										onMouseEnter={() => this.changeGraphic(6)}
-									/>
-
-									<Capsule
-										text='PHP'
-										icon={<FontAwesomeIcon icon={faPhp} />}
-										onMouseEnter={() => this.changeGraphic(7)}
-									/>
-								</div>
-
-								<h4 className='divider-text'>User Interface and Experience</h4>
-
-								<div className='capsule-compilation'>
-									<Capsule
-										text='HTML 5'
-										icon={<FontAwesomeIcon icon={faHtml5} />}
-										onMouseEnter={() => this.changeGraphic(8)}
-									/>
-
-									<Capsule
-										text='CSS/SASS'
-										icon={
-											<>
-												<FontAwesomeIcon icon={faCss3} />
-												<FontAwesomeIcon icon={faSass} />
-											</>
-										}
-										onMouseEnter={() => this.changeGraphic(9)}
-									/>
-
-									<Capsule
-										text='Vanilla JS'
-										icon={<FontAwesomeIcon icon={faJs} />}
-										onMouseEnter={() => this.changeGraphic(10)}
-									/>
-								</div>
-
-								<h4 className='divider-text'>Repository</h4>
-
-								<div className='capsule-compilation'>
-									<Capsule
-										text={<a href='https://www.github.com/markcalendario'>GitHub</a>}
-										icon={<FontAwesomeIcon icon={faGithubAlt} />}
-										onMouseEnter={() => this.changeGraphic(11)}
-									/>
-								</div>
+							<div className='capsule-group'>
+								<Capsule
+									text={<a href='https://www.github.com/markcalendario'>GitHub</a>}
+									icon={<FontAwesomeIcon icon={faGithubAlt} />}
+								/>
 							</div>
 						</div>
-					</Wrapper>
-				</Container>
-			</Section>
-		);
-	}
+					</div>
+				</Wrapper>
+			</Container>
+		</Section>
+	);
 }
 
 function FeaturedProjects() {
@@ -555,7 +473,7 @@ function FeaturedProjects() {
 	}, [fetchFeaturedProjects]);
 
 	const displayFeaturedProjects = () => {
-		return featuredProjectData.map((data) => <Project key={data} data={data} />);
+		return featuredProjectData.map((data) => <Project key={data._id} data={data} />);
 	};
 
 	return (
@@ -566,7 +484,7 @@ function FeaturedProjects() {
 						<h1 className='display-1'>Featured Projects</h1>
 						<p>
 							These are my featured projects, you can view all of my projects by clicking{' '}
-							<Link to='projects'>this link.</Link>
+							<a href='/projects'>this link.</a>
 						</p>
 						<p>
 							As an aspiring fullstack developer, I am considering this as my success and a
@@ -591,170 +509,165 @@ function FeaturedProjects() {
 	);
 }
 
-class Services extends Component {
-	render() {
-		return (
-			<Section id='services'>
-				<Container>
-					<Wrapper>
-						<h1 className='title display-1'>What do I do?</h1>
+function Services() {
 
-						<div className='flex'>
-							<div className='text'>
-								<h3 className='tooltip'>
-									<FontAwesomeIcon icon={faPaintRoller} /> Web Designing / Front-End
-									Development
-									<span>part of website that user is working, a user interface</span>
-								</h3>
+	return (
+		<Section id='services'>
+			<Container>
+				<Wrapper>
+					<h1 className='title display-1'>What do I do?</h1>
 
-								<p>
-									I can do static modern website designs using HTML, CSS, Javascript and
-									especially React Js.
-								</p>
-							</div>
+					<div className='flex'>
+						<div className='text'>
+							<h3 className='tooltip'>
+								<FontAwesomeIcon icon={faPaintRoller} /> Web Designing / Front-End
+								Development
+								<span>part of website that user is working, a user interface</span>
+							</h3>
 
-							<figure>
-								<img src={FrontEndGraphic} alt='Web Designing' />
-							</figure>
+							<p>
+								I can do static modern website designs using HTML, CSS, Javascript and
+								especially React Js.
+							</p>
 						</div>
-						<div className='flex invert'>
-							<div className='text'>
-								<h3 className='tooltip'>
-									<FontAwesomeIcon icon={faCode}></FontAwesomeIcon> Back-end Programming
-									<span>
-										part of the website that users cannot see and interact with, this is
-										where functions are implemented - geeksforgeeks.org
-									</span>
-								</h3>
-								<p>I can do web pages dynamically by using PHP or Node Js and Express.</p>
-							</div>
 
-							<figure>
-								<img src={BackEndGraphic} alt='Back-end Development' />
-							</figure>
+						<figure>
+							<img src={FrontEndGraphic} alt='Web Designing' />
+						</figure>
+					</div>
+					<div className='flex invert'>
+						<div className='text'>
+							<h3 className='tooltip'>
+								<FontAwesomeIcon icon={faCode}></FontAwesomeIcon> Back-end Programming
+								<span>
+									part of the website that users cannot see and interact with, this is
+									where functions are implemented - geeksforgeeks.org
+								</span>
+							</h3>
+							<p>I can do web pages dynamically by using PHP or Node Js and Express.</p>
 						</div>
-						<div className='flex'>
-							<div className='text'>
-								<h3 className='tooltip'>
-									<FontAwesomeIcon icon={faDatabase}></FontAwesomeIcon> Database Management
-									<span>
-										refers to the actions a business takes to manipulate and control data
-										to meet necessary conditions throughout the entire data lifecycle
-										-informatica.com
-									</span>
-								</h3>
-								<p>
-									I can do database management using two different methods, SQL and NoSQL.
-									For SQL, I am using MySQL, on the other hand, I use MongoDB for NoSQL.
-								</p>
-							</div>
 
-							<figure>
-								<img src={DatabaseGraphic} alt='Database Management' />
-							</figure>
+						<figure>
+							<img src={BackEndGraphic} alt='Back-end Development' />
+						</figure>
+					</div>
+					<div className='flex'>
+						<div className='text'>
+							<h3 className='tooltip'>
+								<FontAwesomeIcon icon={faDatabase}></FontAwesomeIcon> Database Management
+								<span>
+									refers to the actions a business takes to manipulate and control data
+									to meet necessary conditions throughout the entire data lifecycle
+									-informatica.com
+								</span>
+							</h3>
+							<p>
+								I can do database management using two different methods, SQL and NoSQL.
+								For SQL, I am using MySQL, on the other hand, I use MongoDB for NoSQL.
+							</p>
 						</div>
-					</Wrapper>
-				</Container>
-			</Section>
-		);
-	}
+
+						<figure>
+							<img src={DatabaseGraphic} alt='Database Management' />
+						</figure>
+					</div>
+				</Wrapper>
+			</Container>
+		</Section>
+	);
 }
 
-class EducationAndExperience extends Component {
-	render() {
-		return (
-			<Section id='education-experience'>
-				<Container>
-					<Wrapper>
-						<h1 className='topper-title display-1'>Timeline of Experience</h1>
-						<Timeline>
-							<TimelineEvent year='2009'>
-								<TimelineEventDetails title='Started Elementary School'>
-									Libis Talisay Elementary School
-								</TimelineEventDetails>
-							</TimelineEvent>
+function EducationAndExperience() {
+	return (
+		<Section id='education-experience'>
+			<Container>
+				<Wrapper>
+					<h1 className='topper-title display-1'>Timeline of Experience</h1>
+					<Timeline>
+						<TimelineEvent year='2009'>
+							<TimelineEventDetails title='Started Elementary School'>
+								Libis Talisay Elementary School
+							</TimelineEventDetails>
+						</TimelineEvent>
 
-							<TimelineEvent year='2016'>
-								<TimelineEventDetails title='Graduated Elementary School'>
-									Libis Talisay Elementary School
-								</TimelineEventDetails>
-								<TimelineEventDetails title='Started Junior High School'>
-									Jose P. Laurel High School, Tondo, Manila
-								</TimelineEventDetails>
-							</TimelineEvent>
+						<TimelineEvent year='2016'>
+							<TimelineEventDetails title='Graduated Elementary School'>
+								Libis Talisay Elementary School
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Started Junior High School'>
+								Jose P. Laurel High School, Tondo, Manila
+							</TimelineEventDetails>
+						</TimelineEvent>
 
-							<TimelineEvent year='2019'>
-								<TimelineEventDetails title='Finished Junior High School'>
-									<h3>Awards</h3>
-									<ul>
-										<li>Mayor Joseph Ejercito Estrada Silver Award</li>
-										<li>Student Exemplar Awardee</li>
-										<li>Academic Honor Student (With Honor)</li>
-										<li>Rank 6 overall (Grade 10)</li>
-										<li>3rd in SineLiksik, Festival of Talents, Division Level</li>
-										<li>8th Place in Eco-Video, Division Level</li>
-									</ul>
-								</TimelineEventDetails>
-								<TimelineEventDetails title='Started Senior High School'>
-									<p>Arellano University - Jose Rizal Campus</p>
-								</TimelineEventDetails>
-							</TimelineEvent>
+						<TimelineEvent year='2019'>
+							<TimelineEventDetails title='Finished Junior High School'>
+								<h3>Awards</h3>
+								<ul>
+									<li>Mayor Joseph Ejercito Estrada Silver Award</li>
+									<li>Student Exemplar Awardee</li>
+									<li>Academic Honor Student (With Honor)</li>
+									<li>Rank 6 overall (Grade 10)</li>
+									<li>3rd in SineLiksik, Festival of Talents, Division Level</li>
+									<li>8th Place in Eco-Video, Division Level</li>
+								</ul>
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Started Senior High School'>
+								<p>Arellano University - Jose Rizal Campus</p>
+							</TimelineEventDetails>
+						</TimelineEvent>
 
-							<TimelineEvent year='2021'>
-								<TimelineEventDetails title='Graduated Senior High School'>
-									<h3>Awards</h3>
-									<ul>
-										<li>
-											Best in Research in Information and Communications Technology
-											<br />
-											The Development of the{' '}
-											<a href='/view-project/63217d369d010c6516005245'>
-												Student Management System of Arellano University Jose Rizal High
-												School
-											</a>
-										</li>
-										<li>With High Honor</li>
-										<li>ICT Rank 1</li>
-										<li>Best in Work Immersion (ICT)</li>
-									</ul>
-								</TimelineEventDetails>
-								<TimelineEventDetails title='Started Freelancing Activities'>
-									Website Building using MERN Stack
-								</TimelineEventDetails>
-								<TimelineEventDetails title='Passed College Admission Evaluation of Polytechnic University of the Philippines'>
-									<p>
-										Bachelor of Science in <strong>Computer Science</strong>
-									</p>
-								</TimelineEventDetails>
-								<TimelineEventDetails title='First Year College'>
-									<p>Polytechnic University of the Philippines</p>
-									<p>President's Lister</p>
-								</TimelineEventDetails>
-							</TimelineEvent>
-							<TimelineEvent year="2022">
-								<TimelineEventDetails title='Second Year College' />
-							</TimelineEvent>
-						</Timeline>
-					</Wrapper>
-				</Container>
-			</Section>
-		);
-	}
+						<TimelineEvent year='2021'>
+							<TimelineEventDetails title='Graduated Senior High School'>
+								<h3>Awards</h3>
+								<ul>
+									<li>
+										Best in Research in Information and Communications Technology
+										<br />
+										The Development of the{' '}
+										<a href='/view-project/63217d369d010c6516005245'>
+											Student Management System of Arellano University Jose Rizal High
+											School
+										</a>
+									</li>
+									<li>With High Honor</li>
+									<li>ICT Rank 1</li>
+									<li>Best in Work Immersion (ICT)</li>
+								</ul>
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Started Freelancing Activities'>
+								Website Building using MERN Stack
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Passed College Admission Evaluation of Polytechnic University of the Philippines'>
+								<p>
+									Bachelor of Science in <strong>Computer Science</strong>
+								</p>
+							</TimelineEventDetails>
+							<TimelineEventDetails title='First Year College'>
+								<p>Polytechnic University of the Philippines</p>
+								<p>President's Lister</p>
+							</TimelineEventDetails>
+						</TimelineEvent>
+						<TimelineEvent year="2022">
+							<TimelineEventDetails title='Second Year College' />
+						</TimelineEvent>
+					</Timeline>
+				</Wrapper>
+			</Container>
+		</Section>
+	);
 }
 
-class RequestProjectPage extends Component {
-	state = {
-		isRequestProjectModalShown: false,
-	};
+function RequestProjectPage() {
+	const [isRequestProjectModalShown, setIsRequestProjectModalShown] = useState(false)
 
-	changeModalVisibilityState = () => {
-		this.setState({ isRequestProjectModalShown: !this.state.isRequestProjectModalShown });
-	};
+	const changeModalVisibilityState = () => {
+		setIsRequestProjectModalShown(prev => !prev)
+	}
 
-	revealRequestProjectButton = () => {
+	const revealRequestProjectButton = () => {
 		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED === 'false') {
 			return (
-				<Button pigment={'solid-primary-btn'}>
+				<Button pigment='solid-primary-btn'>
 					Sorry. Requesting projects is not allowed at this time.
 				</Button>
 			);
@@ -762,7 +675,7 @@ class RequestProjectPage extends Component {
 
 		if (isUserAlreadySubmittedRequest()) {
 			return (
-				<Button pigment={'solid-stable-btn'} click={this.changeModalVisibilityState}>
+				<Button pigment='solid-stable-btn' click={changeModalVisibilityState}>
 					Let's Build! 🤩
 				</Button>
 			);
@@ -773,38 +686,37 @@ class RequestProjectPage extends Component {
 				You have already submitted a request. Thank you! 😍
 			</Button>
 		);
-	};
-
-	render() {
-		return (
-			<>
-				{
-					this.state.isRequestProjectModalShown ?
-						<RequestProjectModal triggerVisibility={this.changeModalVisibilityState} />
-						: null
-				}
-				<Section id='request-project'>
-					<Container>
-						<Wrapper>
-							<div className='left'>
-								<h1 className='display-1'>Let's work together.</h1>
-								<p>
-									Contact me if you think that I am qualified for your project or request a
-									ready made projects if you are in a hurry.{' '}
-								</p>
-								<div className='buttons'>
-									{this.revealRequestProjectButton()}
-
-									<Button pigment='liquid-stable-btn'>I want a ready made! (SOON)</Button>
-								</div>
-							</div>
-							<div className='right'>
-								<img src={PartnerGraphic} alt='Partnership' />
-							</div>
-						</Wrapper>
-					</Container>
-				</Section>
-			</>
-		);
 	}
+
+	return (
+		<Fragment>
+			{
+				isRequestProjectModalShown ?
+					<RequestProjectModal triggerVisibility={changeModalVisibilityState} />
+					: null
+			}
+			<Section id='request-project'>
+				<Container>
+					<Wrapper>
+						<div className='left'>
+							<h1 className='display-1'>Let's work together.</h1>
+							<p>
+								Contact me if you think that I am qualified for your project or request a
+								ready made projects if you are in a hurry.
+							</p>
+							<div className='buttons'>
+								{revealRequestProjectButton()}
+
+								<Button pigment='liquid-stable-btn'>I want a ready made! (SOON)</Button>
+							</div>
+						</div>
+						<div className='right'>
+							<img src={PartnerGraphic} alt='Partnership' />
+						</div>
+					</Wrapper>
+				</Container>
+			</Section>
+		</Fragment>
+	);
+
 }

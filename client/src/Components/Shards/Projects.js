@@ -1,7 +1,7 @@
 import Tilt from 'react-parallax-tilt';
 import { TechTag } from './TechTag';
 
-function Project(props) {
+export function Project(props) {
 	return (
 		<a key={props.data._id} className='proj-link' href={`/view-project/${props.data._id}`}>
 			<Tilt
@@ -41,5 +41,3 @@ function Project(props) {
 		</a>
 	);
 }
-
-export { Project };

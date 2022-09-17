@@ -2,9 +2,10 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { PrimaryNavbar } from '../Shards/Navbar';
 import { FullPageLoader } from '../Shards/Loaders';
 import { TechTag } from '../Shards/TechTag';
-import Tilt from 'react-parallax-tilt';
 import { Container, Section, Wrapper } from '../Shards/Base';
 import { useParams } from 'react-router-dom';
+
+import Tilt from 'react-parallax-tilt';
 import { marked } from 'marked';
 
 function ViewSingleProjectPage() {

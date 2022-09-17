@@ -973,7 +973,7 @@ footer .container .wrapper .notice p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .modal-overlay .modal .close-modal {
   position: fixed;
@@ -1216,19 +1216,11 @@ body {
   position: relative;
   overflow: hidden;
 }
-#expertise .container .wrapper .right .graphic {
-  opacity: 0.2;
-  position: absolute;
-  font-size: 350px;
-  bottom: -40px;
-  left: -40px;
-  transition: 0.5s ease;
-}
 #expertise .container .wrapper .right .content {
   position: relative;
   padding: 20px;
 }
-#expertise .container .wrapper .right .content .capsule-compilation > * {
+#expertise .container .wrapper .right .content .capsule-group > * {
   margin: 7px 0 7px 10px;
 }
 #expertise .container .wrapper .right .content .divider-text {
@@ -1641,7 +1633,7 @@ body {
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies {
   overflow: hidden;
   max-height: 40vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #main-project-page .container .wrapper .projects-navigator .project-lang-choices .technologies a:hover {
   background-color: rgb(236, 236, 236);

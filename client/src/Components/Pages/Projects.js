@@ -1,52 +1,48 @@
-import React, { Component, Fragment, useCallback, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PrimaryNavbar } from '../Shards/Navbar';
 import { Project } from '../Shards/Projects';
 import { ProjectLoader } from '../Shards/Loaders';
-
+import { Button } from '../Shards/Buttons';
 import { RequestProjectModal } from '../Shards/Modals';
 import { isUserAlreadySubmittedRequest } from '../../Functions/user-local-data';
 import Footer from '../Shards/Footer';
 
 import NotFoundIllustration from '../../Images/error/404.svg';
 
-import { Button } from '../Shards/Buttons';
-
 export default function ProjectPage() {
-	const { technologyFilter } = useParams();
-	document.title = `Projects | Mark Kenneth Calendario`;
+	const { technologyFilter } = useParams()
+	document.title = `${technologyFilter.toUpperCase()} Projects | Mark Kenneth Calendario`;
 
 	return (
 		<Fragment>
 			<PrimaryNavbar />
 			<ProjectPageFront />
-			<MainProjectPage technologyFilter={technologyFilter} />
+			<MainProjectPage />
 			<Footer />
 		</Fragment>
 	);
 }
 
-class ProjectPageFront extends Component {
-	state = {
-		isRequestProjectModalShown: false,
-	};
+function ProjectPageFront() {
+	const [isRequestProjectModalShown, setIsRequestProjectModalShown] = useState(false)
 
-	changeModalVisibilityState = () => {
-		this.setState({ isRequestProjectModalShown: !this.state.isRequestProjectModalShown });
-	};
+	const changeModalVisibilityState = () => {
+		setIsRequestProjectModalShown(prev => !prev)
+	}
 
-	getRequestButton = () => {
+	const getRequestButton = () => {
 		if (process.env.REACT_APP_IS_PROJECT_REQUEST_ALLOWED === 'false') {
 			return (
 				<Button pigment={'solid-primary-btn'}>
-					Sorry, project request is not allowed at this time.
+					Project request is not allowed at this time.
 				</Button>
 			);
 		}
 
 		if (isUserAlreadySubmittedRequest()) {
 			return (
-				<Button pigment='solid-stable-btn' click={this.changeModalVisibilityState}>
+				<Button pigment='solid-stable-btn' click={changeModalVisibilityState}>
 					Let's go! 🤩
 				</Button>
 			);
@@ -59,40 +55,39 @@ class ProjectPageFront extends Component {
 		);
 	};
 
-	render() {
-		return (
-			<>
-				{
-					this.state.isRequestProjectModalShown
-						? <RequestProjectModal triggerVisibility={this.changeModalVisibilityState} />
-						: null
-				}
-				<section id='project-topper' className='banner'>
-					<div className='container'>
-						<div className='wrapper'>
-							<div className='text'>
-								<h1>Start your projects with me.</h1>
-								<p>
-									Do you want a partner in coding? Or someone who will help you to develop
-									your projects? Or a web development tutor? Click the button below.
-								</p>
-								<div className='topper-buttons'>{this.getRequestButton()}</div>
-							</div>
+	return (
+		<Fragment>
+			{
+				isRequestProjectModalShown
+					? <RequestProjectModal triggerVisibility={changeModalVisibilityState} />
+					: null
+			}
+			<section id='project-topper' className='banner'>
+				<div className='container'>
+					<div className='wrapper'>
+						<div className='text'>
+							<h1>Start your projects with me.</h1>
+							<p>
+								Do you want a partner in coding? Or someone who will help you to develop
+								your projects? Or a web development tutor? Click the button below.
+							</p>
+							<div className='topper-buttons'>{getRequestButton()}</div>
 						</div>
 					</div>
-				</section>
-			</>
-		);
-	}
+				</div>
+			</section>
+		</Fragment>
+	);
+
 }
 
-function MainProjectPage(props) {
+function MainProjectPage() {
 	return (
 		<section id='main-project-page'>
 			<div className='container'>
 				<div className='wrapper'>
 					<ProjectNavigator />
-					<ProjectList technologyFilter={props.technologyFilter} />
+					<ProjectList />
 				</div>
 			</div>
 		</section>
@@ -143,7 +138,8 @@ function ProjectNavigator() {
 	);
 }
 
-function ProjectList(props) {
+function ProjectList() {
+	const { technologyFilter } = useParams();
 	const [projects, setProjects] = useState(null);
 
 	const fetchProjects = useCallback(() => {
@@ -152,14 +148,14 @@ function ProjectList(props) {
 			headers: { 'Content-Type': 'application/json' },
 		};
 
-		fetch(process.env.REACT_APP_API_URL + '/projects/list/' + props.technologyFilter, options)
+		fetch(process.env.REACT_APP_API_URL + '/projects/list/' + technologyFilter, options)
 			.then((result) => {
 				return result.json();
 			})
 			.then((result) => {
 				setProjects(result.data);
 			});
-	}, [props.technologyFilter]);
+	}, [technologyFilter]);
 
 	useEffect(() => {
 		fetchProjects();
@@ -167,7 +163,7 @@ function ProjectList(props) {
 
 	const displayProjectList = () => {
 		if (projects.length === 0)
-			return <NoProjectsFound technologyFilter={props.technologyFilter} />;
+			return <NoProjectsFound />;
 
 		return projects.map((data) => (
 			<div key={data._id} className='project-wrapper'>
@@ -193,17 +189,17 @@ function ProjectList(props) {
 	);
 }
 
-class NoProjectsFound extends Component {
-	render() {
-		return (
-			<div id='no-projects-found'>
-				<div className='npf-wrapper'>
-					<figure>
-						<img src={NotFoundIllustration} alt='Projects found' />
-					</figure>
-					<h3>{`{ status: 404, message: "No ${this.props.technologyFilter} projects found. 😴"}`}</h3>
-				</div>
+function NoProjectsFound() {
+	const { technologyFilter } = useParams();
+
+	return (
+		<div id='no-projects-found'>
+			<div className='npf-wrapper'>
+				<figure>
+					<img src={NotFoundIllustration} alt='Projects found' />
+				</figure>
+				<h3>{`{ status: 404, message: "No ${technologyFilter} projects found. 😴"}`}</h3>
 			</div>
-		);
-	}
+		</div>
+	);
 }

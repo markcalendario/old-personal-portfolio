@@ -185,20 +185,11 @@ body {
 				position: relative;
 				overflow: hidden;
 
-				.graphic {
-					opacity: 0.2;
-					position: absolute;
-					font-size: 350px;
-					bottom: -40px;
-					left: -40px;
-					transition: 0.5s ease;
-				}
-
 				.content {
 					position: relative;
 					padding: 20px;
 
-					.capsule-compilation {
+					.capsule-group {
 						&>* {
 							margin: 7px 0 7px 10px;
 						}

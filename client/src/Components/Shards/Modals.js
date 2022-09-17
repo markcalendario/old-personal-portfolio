@@ -1,29 +1,12 @@
-// ==============================
-// Icons
-// ==============================
+import React, { Fragment, useState } from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane, faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons"
-
-// ==============================
-// Modules
-// ==============================
-import React, { Component, Fragment } from "react"
-
-// ==============================
-// Functions
-// ==============================
 import { isEmpty, isValidEmail } from "../../Functions/form-validator";
 
-// ==============================
-// Components
-// ==============================
 import { Button } from "./Buttons";
 import { FormControl } from "./Form";
 
-// ==============================
-// Images
-// ==============================
 let agreement = require('../../Images/illustrations/agreement.svg');
 
 function Modal(props) {
@@ -46,14 +29,11 @@ function Modal(props) {
     )
 }
 
-class RequestProjectModal extends Component {
+export function RequestProjectModal(props) {
+    const [formResultText, setFormResultText] = useState(null)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
-    state = {
-        formResultText: null,
-        isSubmitting: false
-    }
-
-    getFormValues = () => {
+    const getFormValues = () => {
 
         const form = new FormData(document.getElementById("project-request-form"))
         const data = {
@@ -69,41 +49,30 @@ class RequestProjectModal extends Component {
         return data;
     }
 
-    isFormValid = (data) => {
+    const isFormValid = (data) => {
 
         let dataValues = Object.values(data);
-
-        // Check for empty fields
-        let isSomeFieldsEmpty = false
         dataValues.forEach((value) => {
-
             if (isEmpty(value)) {
-                isSomeFieldsEmpty = true
+                setFormResultText("Some of the form fields are empty.")
+                return false
             }
-
         })
 
-        if (isSomeFieldsEmpty) {
-            this.setState({ formResultText: "Some of the form fields are empty." })
-            return false
-        }
-
-
-        // Validate Email Address
         if (!isValidEmail(data.customerEmail)) {
-            this.setState({ formResultText: "Please put a valid email address." })
+            setFormResultText("Please put a valid email address.")
             return false
         }
 
         return true
     }
 
-    submitRequestProjectContract = async (e) => {
+    const submitRequestProjectContract = async (e) => {
         e.preventDefault();
 
-        let formData = this.getFormValues()
+        let formData = getFormValues()
 
-        if (!this.isFormValid(formData)) return 0;
+        if (!isFormValid(formData)) return 0;
 
         let options = {
             method: "POST",
@@ -111,28 +80,27 @@ class RequestProjectModal extends Component {
                 'Content-Type': 'application/json'
             },
 
-            body:
-                JSON.stringify(formData)
-
+            body: JSON.stringify(formData)
         }
 
-        this.setState({ isSubmitting: true })
+        setIsSubmitting(true)
 
         await fetch(process.env.REACT_APP_API_URL + "/email-serve/project-request", options)
             .then((response) => {
                 return response.json()
             }).then(result => {
+                setIsSubmitting(false)
                 if (!result.isEmailSent) {
-                    this.setState({ formResultText: "It seems that there's a problem with my emailing service." })
+                    setFormResultText("It seems that there's a problem with my emailing service. Try again later.")
                     return 0
                 }
 
-                this.setRequestResubmissionLimit()
-                this.props.triggerVisibility()
+                setRequestResubmissionLimit()
+                props.triggerVisibility()
             })
     }
 
-    setRequestResubmissionLimit = () => {
+    const setRequestResubmissionLimit = () => {
         const ONEWEEK_EXPIRY = 604800
 
         localStorage.setItem(
@@ -141,8 +109,8 @@ class RequestProjectModal extends Component {
         );
     }
 
-    getButtonText = () => {
-        if (!this.state.isSubmitting) {
+    const getButtonText = () => {
+        if (!isSubmitting) {
             return (
                 <Fragment>
                     <FontAwesomeIcon icon={faPaperPlane} /> Submit a project request
@@ -157,92 +125,88 @@ class RequestProjectModal extends Component {
         )
     }
 
-    render() {
-        return (
-            <Modal triggerVisibility={this.props.triggerVisibility}>
-                <div id="hire-me-modal-content" display={{ display: this.props.show ? "block" : "none" }}>
+    return (
+        <Modal triggerVisibility={props.triggerVisibility}>
+            <div id="hire-me-modal-content">
 
-                    <figure className="content">
-                        <img src={agreement.default} alt="agreement" />
-                    </figure>
+                <figure className="content">
+                    <img src={agreement.default} alt="agreement" />
+                </figure>
 
-                    <div className="content">
-                        <div className="header">
-                            <h1>Project Request</h1>
-                            <p>Tell us about your project.</p>
-                        </div>
+                <div className="content">
+                    <div className="header">
+                        <h1>Project Request</h1>
+                        <p>Tell us about your project.</p>
+                    </div>
 
-                        <form id="project-request-form" onSubmit={this.submitRequestProjectContract} method="post">
-                            <h3 className="form-header-text" >Add your contact info</h3>
+                    <form id="project-request-form" onSubmit={submitRequestProjectContract} method="post">
+                        <h3 className="form-header-text" >Add your contact info</h3>
 
-                            <FormControl>
-                                <label data-required="true" htmlFor="customer-email">Email Address</label>
-                                <input type="email" name="customer-email" placeholder="We will send you an email." />
-                            </FormControl>
+                        <FormControl>
+                            <label data-required="true" htmlFor="customer-email">Email Address</label>
+                            <input type="email" name="customer-email" placeholder="We will send you an email." />
+                        </FormControl>
 
-                            <FormControl>
-                                <label data-required="true" htmlFor="customer-name">Your Full Name</label>
-                                <input type="text" name="customer-name" placeholder="Your full name" />
-                            </FormControl>
+                        <FormControl>
+                            <label data-required="true" htmlFor="customer-name">Your Full Name</label>
+                            <input type="text" name="customer-name" placeholder="Your full name" />
+                        </FormControl>
 
-                            <h3 className="form-header-text">Tell us about your project.</h3>
+                        <h3 className="form-header-text">Tell us about your project.</h3>
 
-                            <FormControl>
-                                <label data-required="true" htmlFor="customer-project">What is your project all about.</label>
-                                <input type="text" name="customer-project" placeholder="Ex. Student Information Management" />
-                            </FormControl>
+                        <FormControl>
+                            <label data-required="true" htmlFor="customer-project">What is your project all about.</label>
+                            <input type="text" name="customer-project" placeholder="Ex. Student Information Management" />
+                        </FormControl>
 
-                            <FormControl>
-                                <label data-required="true" htmlFor="customer-email">Describe your project</label>
-                                <textarea name="project-description" rows="3" placeholder="Describe your project"></textarea>
-                            </FormControl>
+                        <FormControl>
+                            <label data-required="true" htmlFor="customer-email">Describe your project</label>
+                            <textarea name="project-description" rows="3" placeholder="Describe your project"></textarea>
+                        </FormControl>
 
-                            <FormControl>
+                        <FormControl>
 
-                                <label data-required="true" htmlFor="web-stack">Select a web stack</label>
-                                <select name="web-stack">
+                            <label data-required="true" htmlFor="web-stack">Select a web stack</label>
+                            <select name="web-stack">
 
-                                    <option value="MERN" >MERN (MongoDB, ExpressJS, ReactJS, NodeJS) [FOR UI AND SERVER PROCESSES]</option>
-                                    <option value="WAMP">WAMP (Windows, Apache, MySQL, PHP) [FOR UI AND SERVER PROCESSES]</option>
-                                    <option value="HTML/CSS" >HTML AND CSS [UI ONLY]</option>
-                                    <option value="REACT">NODE JS AND REACT [UI ONLY]</option>
-                                    <option value="ANY">ANY</option>
+                                <option value="MERN" >MERN (MongoDB, ExpressJS, ReactJS, NodeJS) [FOR UI AND SERVER PROCESSES]</option>
+                                <option value="WAMP">WAMP (Windows, Apache, MySQL, PHP) [FOR UI AND SERVER PROCESSES]</option>
+                                <option value="HTML/CSS" >HTML AND CSS [UI ONLY]</option>
+                                <option value="REACT">NODE JS AND REACT [UI ONLY]</option>
+                                <option value="ANY">ANY</option>
 
-                                </select>
+                            </select>
 
-                            </FormControl>
+                        </FormControl>
 
-                            <FormControl>
-                                <label data-required="true" htmlFor="deadline">Select a deadline</label>
-                                <select name="deadline">
-                                    <option value="1 Month">1 Month (Applicable for a very small project)</option>
-                                    <option value="3 Months">3 Months (Medium Project)</option>
-                                    <option value="6 Months">6 Months (Large Project)</option>
-                                </select>
-                            </FormControl>
+                        <FormControl>
+                            <label data-required="true" htmlFor="deadline">Select a deadline</label>
+                            <select name="deadline">
+                                <option value="1 Month">1 Month (Applicable for a very small project)</option>
+                                <option value="3 Months">3 Months (Medium Project)</option>
+                                <option value="6 Months">6 Months (Large Project)</option>
+                            </select>
+                        </FormControl>
 
-                            <p className="form-result-text">
-                                {this.state.formResultText}
+                        <p className="form-result-text">
+                            {formResultText}
+                        </p>
+
+                        <FormControl>
+                            <p>
+                                <span className="green">To clients: </span>
+                                Mark Calendario does not save any information or data to our database you put in this form.
                             </p>
 
-                            <FormControl>
-                                <p>
-                                    <span className="green">To clients: </span>
-                                    Mark Calendario does not save any information or data to our database you put in this form.
-                                </p>
+                            <Button pigment='solid-stable-btn'>
+                                {getButtonText()}
+                            </Button>
 
-                                <Button pigment='solid-stable-btn'>
-                                    {this.getButtonText()}
-                                </Button>
+                        </FormControl>
 
-                            </FormControl>
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
-            </Modal >
-        )
-    }
+            </div>
+        </Modal >
+    )
 }
-
-export { RequestProjectModal }

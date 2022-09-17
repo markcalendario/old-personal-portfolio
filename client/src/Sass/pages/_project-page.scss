@@ -43,7 +43,7 @@
                     .technologies {
                         overflow: hidden;
                         max-height: 40vh;
-                        overflow-y: scroll;
+                        overflow-y: auto;
 
                         a:hover {
                             background-color: $gray;
