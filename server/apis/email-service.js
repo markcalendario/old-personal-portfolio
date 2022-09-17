@@ -5,51 +5,52 @@ const { google } = require('googleapis');
 
 router.post("/project-request", async (req, res) => {
 
-  try {
-    const OAuth2Client = new google.auth.OAuth2(
-      process.env.CLIENT_ID,
-      process.env.CLIENT_SECRET,
-      process.env.REDIRECT_URI,
-    );
+	try {
+		const OAuth2Client = new google.auth.OAuth2(
+			process.env.CLIENT_ID,
+			process.env.CLIENT_SECRET,
+			process.env.REDIRECT_URI,
+		);
 
-    OAuth2Client.setCredentials({ refresh_token: process.env.CLIENT_REFRESH_TOKEN });
+		OAuth2Client.setCredentials({ refresh_token: process.env.CLIENT_REFRESH_TOKEN });
 
-    const accessToken = await OAuth2Client.getAccessToken();
+		const accessToken = await OAuth2Client.getAccessToken();
 
-    const transport = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: process.env.CLIENT_EMAIL,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.CLIENT_REFRESH_TOKEN,
-        accessToken: accessToken,
-      },
-    });
+		const transport = nodemailer.createTransport({
+			service: 'gmail',
+			auth: {
+				type: 'OAuth2',
+				user: process.env.CLIENT_EMAIL,
+				clientId: process.env.CLIENT_ID,
+				clientSecret: process.env.CLIENT_SECRET,
+				refreshToken: process.env.CLIENT_REFRESH_TOKEN,
+				accessToken: accessToken,
+			},
+		});
 
-    const mailList = [req.body.customerEmail, 'markcalendario@gmail.com']
+		const mailList = [req.body.customerEmail, 'markcalendario@gmail.com']
 
-    const mailOptions = {
-      from: `Mark Kenneth Calendario <${process.env.CLIENT_EMAIL}>`,
-      to: mailList,
-      subject: 'Project Request Status',
-      html: getEmailContent(req.body),
-    };
+		const mailOptions = {
+			from: `Mark Kenneth Calendario <${process.env.CLIENT_EMAIL}>`,
+			to: mailList,
+			subject: 'Project Request Status',
+			html: getEmailContent(req.body),
+		};
 
-    transport.sendMail(mailOptions, (error, result) => {
-      if (!error) return res.send({ isEmailSent: true, message: "Email sent" })
-    });
-  } catch {
-    return res.send({ isEmailSent: false, message: "Email not sent" })
-  }
+		transport.sendMail(mailOptions, (error, result) => {
+			if (error) return res.send({ isEmailSent: false, message: "Email not sent" })
+			if (!error) return res.send({ isEmailSent: true, message: "Email sent" })
+		});
+	} catch {
+		return res.send({ isEmailSent: false, message: "Email not sent" })
+	}
 
 })
 
 const getEmailContent = (data) => {
-  const { customerName, requestedProjectTitle, requestedProjectDescription, requestedStack, requestedProjectDeadline } = data
+	const { customerName, requestedProjectTitle, requestedProjectDescription, requestedStack, requestedProjectDeadline } = data
 
-  return `
+	return `
   <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
