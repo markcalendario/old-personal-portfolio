@@ -4,7 +4,6 @@ const nodemailer = require("nodemailer");
 const { google } = require('googleapis');
 
 router.post("/project-request", async (req, res) => {
-
 	try {
 		const OAuth2Client = new google.auth.OAuth2(
 			process.env.CLIENT_ID,
@@ -13,9 +12,7 @@ router.post("/project-request", async (req, res) => {
 		);
 
 		OAuth2Client.setCredentials({ refresh_token: process.env.CLIENT_REFRESH_TOKEN });
-
 		const accessToken = await OAuth2Client.getAccessToken();
-
 		const transport = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
@@ -27,7 +24,6 @@ router.post("/project-request", async (req, res) => {
 				accessToken: accessToken,
 			},
 		});
-
 		const mailList = [req.body.customerEmail, 'markcalendario@gmail.com']
 
 		const mailOptions = {
@@ -41,7 +37,7 @@ router.post("/project-request", async (req, res) => {
 			if (error) return res.send({ isEmailSent: false, message: "Email not sent" })
 			if (!error) return res.send({ isEmailSent: true, message: "Email sent" })
 		});
-	} catch {
+	} catch (e) {
 		return res.send({ isEmailSent: false, message: "Email not sent" })
 	}
 
