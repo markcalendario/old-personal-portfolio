@@ -7,36 +7,26 @@ import { ProjectLoader, FeaturedProjectLoader } from '../Shards/Loaders';
 import { RequestProjectModal } from '../Shards/Modals';
 import { isUserAlreadySubmittedRequest } from '../../Functions/user-local-data';
 import { Project } from '../Shards/Projects';
-import { Capsule } from '../Shards/Capsules';
 import { Timeline, TimelineEvent, TimelineEventDetails } from '../Shards/Timeline';
 
 import Typewriter from 'typewriter-effect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-	faDev,
 	faFacebook,
 	faGithubAlt,
 	faInstagram,
-	faNodeJs,
-	faPhp,
 	faReact,
-	faUbuntu,
-	faWindows,
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
 	faCircle,
 	faCode,
-	faCube,
 	faDatabase,
-	faE,
-	faExclamationCircle,
-	faFeather,
-	faGraduationCap,
-	faLeaf,
-	faMedal,
-	faN,
+	faFire,
+	faLightbulb,
 	faPaintRoller,
+	faRocket,
+	faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
 import AboutMeImage from '../../Images/landingpage/Mark Kenneth Graphic - About.png';
@@ -45,6 +35,19 @@ import PartnerGraphic from '../../Images/landingpage/partner.svg';
 import FrontEndGraphic from '../../Images/landingpage/web-design.gif';
 import BackEndGraphic from '../../Images/landingpage/back-end.gif';
 import DatabaseGraphic from '../../Images/landingpage/database-management.gif';
+
+import ReactIcon from '../../Images/techicons/react.png'
+import MongoDbIcon from '../../Images/techicons/mongodb.png'
+import NodeJs from '../../Images/techicons/nodejs.png'
+import ExpressJs from '../../Images/techicons/expressjs.png'
+import PM2 from '../../Images/techicons/pm2.png'
+import Ubuntu from '../../Images/techicons/ubuntu.png'
+import Nginx from '../../Images/techicons/nginx.png'
+import Sass from '../../Images/techicons/sass.png'
+import Postman from '../../Images/techicons/postman.png'
+import Windows from '../../Images/techicons/windows.png'
+import VSCode from '../../Images/techicons/vscode.png'
+import Firebase from '../../Images/techicons/firebase.png'
 
 export default function LandingPage() {
 
@@ -148,7 +151,7 @@ function QuickOverview() {
 	}, [fetchLatestProject]);
 
 	return (
-		<Section id={'quick-overview'}>
+		<Section id='quick-overview'>
 			<Container>
 				<Wrapper>
 					<div className='box'>
@@ -156,24 +159,46 @@ function QuickOverview() {
 							<h3>Quick Overview</h3>
 
 							<div className='overview'>
-								<p className='overview-text'>
-									<FontAwesomeIcon icon={faCode} /> I built 6 web projects since 2020.
-								</p>
-								<p className='overview-text'>
-									<FontAwesomeIcon icon={faGraduationCap} /> I am a Computer Science
-									Student at PUP.
-								</p>
-								<p className='overview-text'>
-									<FontAwesomeIcon icon={faMedal} /> I finished senior high school with
-									high honor at Arellano University.
-								</p>
-								<p className='overview-text'>
-									<FontAwesomeIcon icon={faDev} /> I am an aspiring fullstack developer.
-								</p>
-								<p className='overview-text'>
-									<FontAwesomeIcon icon={faExclamationCircle} /> Gaining experience in
-									freelancing.
-								</p>
+								<div className='overview-info'>
+									<div className="oi-icon">
+										<FontAwesomeIcon icon={faRocket} />
+									</div>
+									<p className="oi-text">
+										Built 6 Web Projects Since 2020
+									</p>
+								</div>
+								<div className='overview-info'>
+									<div className="oi-icon">
+										<FontAwesomeIcon icon={faStar} />
+									</div>
+									<p className="oi-text">
+										Computer Science Student at PUP
+									</p>
+								</div>
+								<div className='overview-info'>
+									<div className="oi-icon">
+										<FontAwesomeIcon icon={faFire} />
+									</div>
+									<p className="oi-text">
+										Aspiring Fullstack Web Developer.
+									</p>
+								</div>
+								<div className='overview-info'>
+									<div className="oi-icon">
+										<FontAwesomeIcon icon={faLightbulb} />
+									</div>
+									<p className="oi-text">
+										Gaining Experience in Freelancing
+									</p>
+								</div>
+								<div className='overview-info'>
+									<div className="oi-icon">
+										<FontAwesomeIcon icon={faReact} />
+									</div>
+									<p className="oi-text">
+										MERN is My Technology Stack
+									</p>
+								</div>
 							</div>
 						</div>
 						<div className='right'>
@@ -327,123 +352,147 @@ function About() {
 }
 
 function Expertise() {
-	// const expertiseGraphicData = {
-	// 	mongodb: { icon: faLeaf, color: '#3FA037' },
-	// 	express: { icon: faE, color: '#1b1b1b' },
-	// 	react: { icon: faReact, color: '#61DBFB' },
-	// 	nodejs: { icon: faReact, color: '#61DBFB' },
-	// }
-
 	return (
 		<Section id='expertise'>
+			<div class="expertise-triangle-top">
+				<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+					<path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
+				</svg>
+			</div>
 			<Container>
 				<Wrapper>
-					<div className='left'>
-						<h1 className='display-1'>I am currently mastering these technologies.</h1>
-						<div className='horizontal-line'></div>
-
-						<p>
-							The two most popular stacks in the field of web development, the MERN{' '}
-							<span className='gray'>(MongoDB, Express JS, React and Node JS)</span> and
-							WAMP <span className='gray'>(Windows, Apache, MySQL and PHP)</span> stacks.
-						</p>
+					<div className="expertise-topper">
+						<h1 className='display-1 title'>My Tech Stacks</h1>
+						<p>Technology stacks that I am currently working on.</p>
 					</div>
-
-					<div className='right'>
-
-						<div className='content'>
-							<h4 className='divider-text'>MERN Stack / My Current Stack</h4>
-
-							<div className='capsule-group'>
-								<Capsule
-									text='Mongo DB'
-									icon={<FontAwesomeIcon icon={faLeaf} />}
-								/>
-
-								<Capsule
-									text='Express JS'
-									icon={<FontAwesomeIcon icon={faE} />}
-								/>
-
-								<Capsule
-									text='React JS'
-									icon={<FontAwesomeIcon icon={faReact} />}
-								/>
-
-								<Capsule
-									text='Node JS'
-									icon={<FontAwesomeIcon icon={faNodeJs} />}
-								/>
+					<div className="tech-group">
+						<h2 className='tech-group-title'>Web Development Stack</h2>
+						<div className="tech-list">
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={ReactIcon} alt="React JS" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>React JS</h3>
+									<p>Client Side</p>
+								</div>
 							</div>
-
-							<h4 className='divider-text'>WAMP Stack / My Old Stack</h4>
-
-							<div className='capsule-group'>
-								<Capsule
-									text='Windows'
-									icon={<FontAwesomeIcon icon={faWindows} />}
-								/>
-
-								<Capsule
-									text='Apache'
-									icon={<FontAwesomeIcon icon={faFeather} />}
-								/>
-
-								<Capsule
-									text='MySQL'
-									icon={<FontAwesomeIcon icon={faDatabase} />}
-								/>
-
-								<Capsule
-									text='PHP'
-									icon={<FontAwesomeIcon icon={faPhp} />}
-								/>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={ExpressJs} alt="Express JS" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Express JS</h3>
+									<p>Server Side</p>
+								</div>
 							</div>
-
-							<h4 className='divider-text'>Deployment</h4>
-
-							<div className='capsule-group'>
-								<Capsule
-									text='NGINX'
-									icon={<FontAwesomeIcon icon={faN} />}
-								/>
-								<Capsule
-									text='Ubuntu'
-									icon={<FontAwesomeIcon icon={faUbuntu} />}
-								/>
-								<Capsule
-									text='PM2'
-									icon={<FontAwesomeIcon icon={faCube} />}
-								/>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={MongoDbIcon} alt="Mongo DB" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Mongo DB</h3>
+									<p>No-SQL Database</p>
+								</div>
 							</div>
-
-							<h4 className='divider-text'>Working Environment</h4>
-
-							<div className='capsule-group'>
-								<Capsule
-									text='Windows 10'
-									icon={<FontAwesomeIcon icon={faWindows} />}
-								/>
-								<Capsule
-									text='Visual Studio Code'
-									icon={<FontAwesomeIcon icon={faCode} />}
-								/>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={NodeJs} alt="Node JS" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Node JS</h3>
+									<p>Server Environment</p>
+								</div>
 							</div>
-
-							<h4 className='divider-text'>Repository</h4>
-
-							<div className='capsule-group'>
-								<Capsule
-									text={<a href='https://www.github.com/markcalendario'>GitHub</a>}
-									icon={<FontAwesomeIcon icon={faGithubAlt} />}
-								/>
+						</div>
+					</div>
+					<div className="tech-group">
+						<h2 className='tech-group-title'>Other Development Tools</h2>
+						<div className="tech-list">
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Sass} alt="Sass" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>SASS</h3>
+									<p>CSS Preprocessor</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Postman} alt="Postman" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Postman</h3>
+									<p>API Testing</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Windows} alt="Windows" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Windows</h3>
+									<p>Operating System</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={VSCode} alt="VSCode" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>VSCode</h3>
+									<p>Code Editor</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="tech-group">
+						<h2 className='tech-group-title'>Deployment</h2>
+						<div className="tech-list">
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Nginx} alt="NGINX" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>NGINX</h3>
+									<p>Web Server</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Ubuntu} alt="Ubuntu" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Ubuntu</h3>
+									<p>Operating System</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={PM2} alt="PM2" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>PM2</h3>
+									<p>Node Process Manager</p>
+								</div>
+							</div>
+							<div className="tech-block">
+								<div className="tech-image">
+									<img src={Firebase} alt="Firebase" />
+								</div>
+								<div className="tech-block-texts">
+									<h3>Firebase</h3>
+									<p>Only for Static Web Deployment</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</Wrapper>
 			</Container>
-		</Section>
-	);
+		</Section >
+
+	)
 }
 
 function FeaturedProjects() {
@@ -584,38 +633,9 @@ function EducationAndExperience() {
 				<Wrapper>
 					<h1 className='topper-title display-1'>Timeline of Experience</h1>
 					<Timeline>
-						<TimelineEvent year='2009'>
-							<TimelineEventDetails title='Started Elementary School'>
-								Libis Talisay Elementary School
-							</TimelineEventDetails>
+						<TimelineEvent year="2022">
+							<TimelineEventDetails title='Second Year College' />
 						</TimelineEvent>
-
-						<TimelineEvent year='2016'>
-							<TimelineEventDetails title='Graduated Elementary School'>
-								Libis Talisay Elementary School
-							</TimelineEventDetails>
-							<TimelineEventDetails title='Started Junior High School'>
-								Jose P. Laurel High School, Tondo, Manila
-							</TimelineEventDetails>
-						</TimelineEvent>
-
-						<TimelineEvent year='2019'>
-							<TimelineEventDetails title='Finished Junior High School'>
-								<h3>Awards</h3>
-								<ul>
-									<li>Mayor Joseph Ejercito Estrada Silver Award</li>
-									<li>Student Exemplar Awardee</li>
-									<li>Academic Honor Student (With Honor)</li>
-									<li>Rank 6 overall (Grade 10)</li>
-									<li>3rd in SineLiksik, Festival of Talents, Division Level</li>
-									<li>8th Place in Eco-Video, Division Level</li>
-								</ul>
-							</TimelineEventDetails>
-							<TimelineEventDetails title='Started Senior High School'>
-								<p>Arellano University - Jose Rizal Campus</p>
-							</TimelineEventDetails>
-						</TimelineEvent>
-
 						<TimelineEvent year='2021'>
 							<TimelineEventDetails title='Graduated Senior High School'>
 								<h3>Awards</h3>
@@ -647,8 +667,34 @@ function EducationAndExperience() {
 								<p>President's Lister</p>
 							</TimelineEventDetails>
 						</TimelineEvent>
-						<TimelineEvent year="2022">
-							<TimelineEventDetails title='Second Year College' />
+						<TimelineEvent year='2019'>
+							<TimelineEventDetails title='Finished Junior High School'>
+								<h3>Awards</h3>
+								<ul>
+									<li>Mayor Joseph Ejercito Estrada Silver Award</li>
+									<li>Student Exemplar Awardee</li>
+									<li>Academic Honor Student (With Honor)</li>
+									<li>Rank 6 overall (Grade 10)</li>
+									<li>3rd in SineLiksik, Festival of Talents, Division Level</li>
+									<li>8th Place in Eco-Video, Division Level</li>
+								</ul>
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Started Senior High School'>
+								<p>Arellano University - Jose Rizal Campus</p>
+							</TimelineEventDetails>
+						</TimelineEvent>
+						<TimelineEvent year='2016'>
+							<TimelineEventDetails title='Graduated Elementary School'>
+								Libis Talisay Elementary School
+							</TimelineEventDetails>
+							<TimelineEventDetails title='Started Junior High School'>
+								Jose P. Laurel High School, Tondo, Manila
+							</TimelineEventDetails>
+						</TimelineEvent>
+						<TimelineEvent year='2009'>
+							<TimelineEventDetails title='Started Elementary School'>
+								Libis Talisay Elementary School
+							</TimelineEventDetails>
 						</TimelineEvent>
 					</Timeline>
 				</Wrapper>

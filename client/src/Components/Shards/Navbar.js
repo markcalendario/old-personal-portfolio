@@ -245,7 +245,7 @@ function DesktopSecondaryNavbar() {
         let scroll = window.scrollY;
 
         const aboutBreakpoint = document.getElementById("about").offsetTop - 200;
-        const expertiseBreakpoint = document.getElementById("expertise").offsetTop - 200;
+        const expertiseBreakpoint = document.getElementById("expertise").offsetTop;
         const timelineBreakPoint = document.getElementById("education-experience").offsetTop - 200;
         const featuredProjectBreakpoint = document.getElementById("featured-projects").offsetTop - 200;
         const servicesBreakPoint = document.getElementById("services").offsetTop - 200;

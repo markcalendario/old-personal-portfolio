@@ -1,0 +1,32 @@
+.tech-block {
+    width: 220px;
+    background-color: $primary-color;
+    padding: 30px 20px;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+    .tech-image {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .tech-block-texts {
+        margin-top: 7px;
+        color: $white;
+
+        p {
+            font-size: small;
+            color: $gray2;
+            line-height: 19px;
+        }
+    }
+}

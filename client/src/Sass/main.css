@@ -430,29 +430,33 @@ html {
   width: 100%;
 }
 
-.capsule-white {
-  background-color: #F8F8F8;
-  display: inline-block;
-  align-items: flex-start;
-  box-shadow: rgba(236, 236, 236, 0.15) 0px 8px 24px;
-  overflow: hidden;
-  border-radius: 5px;
-  cursor: pointer;
+.tech-block {
+  width: 220px;
+  background-color: #1f1f1f;
+  padding: 30px 20px;
+  border-radius: 7px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
-.capsule-white .capsule-content {
+.tech-block .tech-image {
+  width: 100px;
+  height: 100px;
+  margin: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-.capsule-white .capsule-content .capsule-icon {
-  padding: 10px;
-  color: rgb(27, 27, 27);
-  background-color: rgb(236, 236, 236);
+.tech-block .tech-image img {
+  width: 100%;
 }
-.capsule-white .capsule-content .capsule-text {
-  font-family: PoppinsBlack;
-  font-weight: bold;
-  padding: 10px;
-  color: rgb(27, 27, 27);
+.tech-block .tech-block-texts {
+  margin-top: 7px;
+  color: #F8F8F8;
+}
+.tech-block .tech-block-texts p {
+  font-size: small;
+  color: rgb(226, 226, 226);
+  line-height: 19px;
 }
 
 .tech-tag {
@@ -1111,16 +1115,40 @@ body {
 }
 #quick-overview .container .wrapper .box h3 {
   margin: 0 0 20px 0;
+  font-weight: 1000;
 }
-#quick-overview .container .wrapper .box .left .overview-text {
-  padding: 10px 0;
+#quick-overview .container .wrapper .box .left .overview > *:not(:first-child):not(:last-child) {
+  margin: 15px 0;
+}
+#quick-overview .container .wrapper .box .left .overview .overview-info {
+  display: flex;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+}
+#quick-overview .container .wrapper .box .left .overview .overview-info:hover {
+  background-color: #1f1f1f;
+  color: #F8F8F8;
+  border-radius: 50px;
+}
+#quick-overview .container .wrapper .box .left .overview .overview-info .oi-icon {
+  background-color: #1f1f1f;
+  border-radius: 50%;
+  color: #F8F8F8;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#quick-overview .container .wrapper .box .left .overview .overview-info .oi-text {
+  margin-left: 10px;
 }
 
 #about {
   background-color: #1f1f1f;
   padding: 100px 0;
   transition: 0.3s ease;
-  margin: 50px 0;
 }
 #about .container .wrapper h1 {
   margin-top: 20px;
@@ -1195,37 +1223,6 @@ body {
 #about .container .wrapper .right p {
   color: #F8F8F8;
   margin-top: 30px;
-}
-
-#expertise {
-  margin: 50px 0;
-}
-#expertise .container .wrapper .left h1 {
-  font-weight: 900;
-  color: #1f1f1f;
-  margin-bottom: 20px;
-}
-#expertise .container .wrapper .left .gray {
-  opacity: 0.5;
-}
-#expertise .container .wrapper .right {
-  margin: 50px 0;
-  text-align: center;
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-}
-#expertise .container .wrapper .right .content {
-  position: relative;
-  padding: 20px;
-}
-#expertise .container .wrapper .right .content .capsule-group > * {
-  margin: 7px 0 7px 10px;
-}
-#expertise .container .wrapper .right .content .divider-text {
-  margin: 10px 0;
-  color: #F8F8F8;
 }
 
 #education-experience {
@@ -1387,6 +1384,43 @@ body {
   filter: drop-shadow(1px 6px 6px rgba(90, 58, 58, 0.1));
 }
 
+#expertise .expertise-triangle-top {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  padding-bottom: 50px;
+}
+#expertise .expertise-triangle-top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 57px;
+}
+#expertise .expertise-triangle-top .shape-fill {
+  fill: #1f1f1f;
+}
+#expertise .container .wrapper .expertise-topper {
+  text-align: center;
+}
+#expertise .container .wrapper .expertise-topper .title {
+  font-weight: 1000;
+}
+#expertise .container .wrapper .tech-group {
+  margin: 30px 0;
+}
+#expertise .container .wrapper .tech-group .tech-group-title {
+  padding: 10px 0;
+}
+#expertise .container .wrapper .tech-group .tech-list {
+  display: flex;
+}
+#expertise .container .wrapper .tech-group .tech-list > * {
+  margin: 20px 20px 20px 0;
+}
+
 @media (min-width: 768px) {
   #request-project .container .wrapper {
     display: flex;
@@ -1461,72 +1495,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #expertise {
-    margin: 100px 0;
-  }
-  #expertise .container .wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  #expertise .container .wrapper .left {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 8rem;
-    width: 40%;
-    display: inline;
-    transition: 0.3s ease;
-  }
-  #expertise .container .wrapper .left .gray {
-    opacity: 0.5;
-  }
-  #expertise .container .wrapper .left .horizontal-line {
-    background-color: rgb(27, 27, 27);
-    height: 5px;
-    width: 500px;
-    margin: 10px 0;
-    -webkit-animation-name: lineAnim;
-            animation-name: lineAnim;
-    -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-    transition: 0.3s ease;
-    text-align: right;
-  }
-  @-webkit-keyframes lineAnim {
-    from {
-      width: 0px;
-    }
-    100% {
-      width: 500px;
-      height: 5px;
-    }
-  }
-  @keyframes lineAnim {
-    from {
-      width: 0px;
-    }
-    100% {
-      width: 500px;
-      height: 5px;
-    }
-  }
-  #expertise .container .wrapper .right {
-    margin: unset;
-    text-align: right;
-    width: 55%;
-    border-radius: 10px;
-  }
-  #expertise .container .wrapper .right .graphic {
-    font-size: 700px;
-    bottom: -150px;
-    left: -100px;
-  }
-  #expertise .container .wrapper .right .content {
-    padding: 60px;
-  }
-  #about {
-    padding: 150px 0;
-  }
   #about .container .wrapper .about-intro {
     display: flex;
     justify-content: space-between;
@@ -1556,12 +1524,12 @@ body {
     width: 350px;
   }
   #quick-overview .container .wrapper .box {
-    padding: 50px;
+    padding: 40px;
     display: flex;
     justify-content: space-between;
   }
   #quick-overview .container .wrapper .box > * {
-    width: 50%;
+    width: 48%;
   }
   #parallax > * {
     width: 700px;

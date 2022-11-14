@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "63217d369d010c6516005245"
+  },
+  "technologies": [
+    "php",
+    "mysql",
+    "html",
+    "css"
+  ],
+  "projectShortName": "AUSMS",
+  "projectFullname": "Arellano University Student Information Management System",
+  "isFeatured": false,
+  "projectImage": "62d4149521ef54f4cf6546e6.png",
+  "markdown": "\n# Arellano University Student Information Management System\n\nAn Arellano University's Student Information System that manages students' basic information, grades, section.\n\nIt was developed as a partial requirements for the Practical Research 2 subject in Grade 12.\n\n\n\n\n\n## Awards and Recognitions\n\n![](https://img.shields.io/badge/BEST_IN_RESEARCH-0052CC?style=for-the-badge&label=AWARD&logoColor=white&labelColor=yellow)\n\n![](https://img.shields.io/badge/BEST_IN_SOFTWARE-0052CC?style=for-the-badge&label=AWARD&logoColor=white&labelColor=yellow)\n\n![](https://img.shields.io/badge/PARTICIPATED_IN_RESEARCH_COLLOQUIUM-0052CC?style=for-the-badge&label=REP&logoColor=white&labelColor=yellow)\n\n## Features\n\n- Secure Login System\n- Three User Types\n- Automatic Student Report Card (Form 138) Generation\n- Manage Students\n- Manage Teachers\n- Manage Subjects\n- Teacher Announcement System\n- Action Logs\n- Cross platform\n\n\n\n## Authors\n\n- [Mark Kenneth Calendario](https://www.github.com/markcalendario)\n- Arñe Sonder Kiel Diestra\n- Carl Joseph Delos Reyes\n- Carl Joseph Suñga\n- Shawn Ashley Hernandez\n\n\n## Tech Stack\n\n**Client:** \n\n![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)\n\n![](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)\n\n**Server:** \n\n![](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)\n\n**Database:**\n\n![](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)\n\n"
+},{
+  "_id": {
+    "$oid": "6321d58c358475b71990e777"
+  },
+  "technologies": [
+    "mongodb",
+    "expressjs",
+    "reactjs",
+    "nodejs"
+  ],
+  "projectShortName": "PORTFOLIO",
+  "projectFullname": "My Personal Portfolio",
+  "isFeatured": true,
+  "projectImage": "1627486776594.png",
+  "markdown": "# Markdown Not Available Yet"
+},{
+  "_id": {
+    "$oid": "63220209294c22cbeb86d95b"
+  },
+  "technologies": [
+    "reactjs",
+    "nodejs",
+    "expressjs",
+    "mongodb"
+  ],
+  "projectShortName": "LEARNINGAXIES",
+  "projectFullname": "Learning Axies' Course Website",
+  "isFeatured": true,
+  "projectImage": "1633886895523.png",
+  "markdown": "\n# Learning Axies\n\nThe Learning Axies website was developed by Mark Kenneth Calendario as requested by the Axies Training and Tutorial Services company.\n\n\nYou may view the website **[here](https://www.learningaxies.com)** or by clicking this link: **https://www.learningaxies.com**.\n\n\n## Features\n\n- Secure login system\n- Multiple user types (Learners, Parents, Teachers, Admin)\n- Database driven website\n- Account management\n- Automatic Classes Suggestion\n- Working email services\n- Forgot Password Feature (uses email services)\n- View schedule\n\n\n**Teachers**\n- Valid ID confirmation\n- Post a class for admin ppproval\n- View a class progress\n- Join a class when scheduled time has arrived\n\n\n**Learners**\n- Enroll himself/herself to a specific class\n- Upload payment receipt for approval\n- Join a class when scheduled time has arrived\n- Can rate teachers\n\n\n**Parents**\n- Can enroll multiple children to a class\n- Upload payment receipts for admin approval\n- Can rate teachers\n\n\n**Admin**\n- Monitor website's status on the dashboard\n- Approve or decline enrollees\n- Approve or decline Classes\n- Set or modify classes information\n- Ban users\n\n\n\n## Authors\n\n- [Mark Kenneth Calendario](https://www.github.com/markcalendario)\n\n## 🚀 Download\n![](https://img.shields.io/badge/This_Is_Not_Downloadable-000?style=for-the-badge&logoColor=white)\n\nThis project is exclusive for Learning Axies company only."
+},{
+  "_id": {
+    "$oid": "63220377294c22cbeb86d95c"
+  },
+  "technologies": [
+    "mongodb",
+    "expressjs",
+    "reactjs",
+    "nodejs",
+    "websocket"
+  ],
+  "projectShortName": "MESSENGER",
+  "projectFullname": "A Realtime Chat Application Built with WebSocket",
+  "isFeatured": false,
+  "projectImage": "1648434093504.png",
+  "markdown": "## 🚀 Download\n[![portfolio](https://img.shields.io/badge/Source_Code-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/markcalendario/real-time-chat-app-ws)\n\n# Real Time Chat App \n\nIt is a simple web-based real time chat application built in MERN Stack and built-in Websocket.\n\n\n## Lessons Learned\n\nWebsockets are used to build real time applications. However, the cons of using HTML websockets are it can't emit custom events to the server. The Socket.io, on the other hand, allows developers to create custom events.\n \n\n## Run Locally\n\nClone the project\n\n```bash\n  git clone https://github.com/markcalendario/real-time-chat-app-ws\n```\n\nGo to the project directory\n\n```bash\n  cd real-time-chat-app-ws\n```\n\n### Running the client side\n\nMoving to the client side directory\n```bash\n  cd client\n```\n\nInstalling dependencies\n```bash\n  yarn install\n```\n\nStarting the client\n\n```bash\n  yarn start\n```\n\n### Running the server side\n\nMoving to the server side directory\n```bash\n  cd ..\n  cd server\n```\n\nInstalling dependencies\n```bash\n  yarn install\n```\n\nStarting the server\n\n```bash\n  yarn run dev \n```\n\n\n## License\n\n[MIT](https://choosealicense.com/licenses/mit/)\n\n\n## Authors\n\n- [markcalendario](https://www.github.com/markcalendario)\n\n\n## Screenshots\n\n![App Screenshot](https://i.imgur.com/3IjXjX8.png)\n![App Screenshot](https://i.imgur.com/0xmFJv9.png)![App Screenshot](https://i.imgur.com/nyqRZcX.png)\n"
+},{
+  "_id": {
+    "$oid": "63220d8e294c22cbeb86d95d"
+  },
+  "technologies": [
+    "socket.io",
+    "expressjs",
+    "reactjs",
+    "nodejs"
+  ],
+  "projectShortName": "CHATROOM",
+  "projectFullname": "A Chat System with Room Feature Built with Socket.IO",
+  "isFeatured": false,
+  "projectImage": "63220d8e294c22cbeb86d95d.png",
+  "markdown": "## 🚀 Download\n[![portfolio](https://img.shields.io/badge/Source_Code-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/markcalendario/socket.io-guide)\n\n# Socket.io Guide\n\nAn implementation guide for Socket.io with React.JS\n\n\n## Documentation\n\n[For Server](https://socket.io/docs/v4/)\n\n[For Client](https://socket.io/docs/v4/client-api/)\n\n\n## Lessons Learned\n\n**Socket.io allows developers to create custom event.**\n\nFor example the client emits an event called **hello** with JSON data\n\n```javascript\n// React Client\nimport { io } from \"socket.io-client\";\nconst socket = io(\"[url where to connect]\");\n\n// emit a hello event with a JSON-parsed data\nsocket.emit(\"hello\", data);\n```\n\nThe server will wait and listen to the **hello** event from the server like this\n\n```javascript\nimport { Server } from \"socket.io\";\nconst io = new Server(PORT);\n\n// Establish a connection\nio.on(\"connection\", (socket) => {\n  // receive a message from the hello event from sent emitted by client\n  socket.on(\"hello\", (data) => {\n    // process the data\n  });\n});\n```\n\n**Socket.io has a room feature**\n\nSocket clients can join to a specific room\n```javascript\n// server\n...\nsocket.join(roomID);\n...\n```\n\nClients can also leave from the room\n\n```javascript\n// server\n...\nsocket.leave(roomID);\n...\n```\n_Note: Joining and Leaving statements should be wrapped inside the emit event listeners (socket.on(...args)) sent by the client_\n\n**You can emit or send an event to a specific rooms**\n\nEmitting events to a particular room is possible with socket.io. \n\nSee the actual emit cheatsheet [here](https://stackoverflow.com/a/10099325/15958428) and [here](https://socket.io/docs/v3/emit-cheatsheet/)\n\n```javascript\n// server\n\n// sending to sender-client only\nsocket.emit('event_here', data.message);\n\n// sending to all clients, include sender\nio.emit('event_here', data.message);\n\n// sending to all clients except sender\nsocket.broadcast.emit('event_here', data.message);\n\n// sending to all clients in 'room' except sender\nsocket.broadcast.to(data.room).emit('event_here', data.message);\n\n// sending to all clients in room, include sender\nio.in(data.room).emit('event_here', data.message);\n\n// sending to sender client, only if they are in room\nsocket.to(room).emit('event_here', data.message);\n\n// sending to all clients in namespace 'myNamespace', include sender\nio.of('myNamespace').emit('event_here', data.message);\n\n// sending to individual socketid\nsocket.broadcast.to(socketid).emit('event_here', data.message);\n\n```\n\n\n\n\n## Tech Stack\n\n**Client:** React\n\n**Server:** Node, Socket.io\n\n\n## License\n\n[MIT](https://choosealicense.com/licenses/mit/)\n\n\n## Authors\n\n- [@markcalendario](https://www.github.com/markcalendario)\n"
+},{
+  "_id": {
+    "$oid": "63221149294c22cbeb86d95e"
+  },
+  "technologies": [
+    "mongodb",
+    "expressjs",
+    "reactjs",
+    "nodejs",
+    "stripe"
+  ],
+  "projectShortName": "SHOPPITY",
+  "projectFullname": "E-Commerce Web App with Stripe Payment Gateway",
+  "isFeatured": true,
+  "projectImage": "63221149294c22cbeb86d95e.png",
+  "markdown": "## 🚀 Download\n[![portfolio](https://img.shields.io/badge/Source_Code-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/markcalendario/e-commerce-with-stripe)\n\n# E-Commerce\n\nA simple and plain E-commerce MERN application with Stripe payment gateway integration\n\n\nThe main focus of this project is to implement the payment gateway using Stripe.\n## Environment Variables\n\n### Client Environment\nIn order for the client to work properly, you will be needing the following .env variables inside the client folder\n\n`REACT_APP_API_URL=\"http://localhost:7777\"`\n\n`GENERATE_SOURCEMAP=false`\n\n### Server Environment\nTo run the server, you will need to add the following environment variables the .env file in server folder\n\n`PORT = 7777`\n\n`ORIGIN = \"http://localhost:3000\"`\n\n`SERVER = \"http://localhost:7777\"`\n\n`DATABASE_URI = \"mongodb://localhost:27017\"`\n\n`STRIPE_URI = \"YOUR STRIPE SECRET HERE\"`\n\n\n\n## Installation\n\nInstall this project using git\n\n```bash\n    git clone https://github.com/markcalendario/e-commerce-with-stripe.git\n    cd e-commerce-with-stripe\n```\n\nInstall all packages and dependencies\n```bash\n    npm install\n```\n\nStart the client with NPM, the application will start at `http://localhost:3000`\n```bash\n    cd client\n    npm start\n```\n\nTo start the server with NPM, open new terminal/cmd prompt, then go to the `server` folder. The server will start at the same origin as client with port `7777`\n```bash\n    npm start\n```\n    \n## Database Initialization\n\nInitialize the MongoDB database by inserting the following documents in database `shopitty` and collection `products`\n\n```json\n[{\n  \"_id\": {\n    \"$oid\": \"630330e5ae8f95f539392009\"\n  },\n  \"title\": \"Colorful Slip-on Unisex Streetwear Sneakers Fashion\",\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, ex. Hic, voluptatibus avudera.\",\n  \"price\": 120.5,\n  \"imageId\": \"630330e5ae8f95f539392009.jpg\"\n},{\n  \"_id\": {\n    \"$oid\": \"6303321bae8f95f53939200a\"\n  },\n  \"title\": \"White Sneakers for Sport with Blue Outline\",\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, ex. Hic, voluptatibus avudera.\",\n  \"price\": 199.99,\n  \"imageId\": \"6303321bae8f95f53939200a.webp\"\n}]\n```\n\n\n    \n## Lessons Learned\n\nWhat I have learned while implementing Stripe\n\n- Stripe payment gateway is simple and easy to use.\n- It offers testing phase for the developers.\n\n**Pros**\n\n- Simple\n- Has a great community\n- Steep learning curve\n\n**Cons**\n\n- Production is not available in the Philippines, the test only\n\n## Stripe API\n\nThis project uses [Checkout API](https://stripe.com/docs/api/checkout/sessions/create) of Stripe\n\n\n## Screenshots\n\n**Login Page**\n\n![App Screenshot](https://i.imgur.com/javFszA.png)\n\n**Shop Page**\n\n![App Screenshot](https://i.imgur.com/mVgfePv.png)\n\n**Cart Page**\n\n![App Screenshot](https://i.imgur.com/dUIDp7v.png)\n\n**Payment Page** - A page of Stripe\n\n![App Screenshot](https://i.imgur.com/4HxPEE3.png)\n\n**Payment Success Page**\n\n![App Screenshot](https://i.imgur.com/niLDryE.png)\n\n**Payment Cancelled Page**\n\n![App Screenshot](https://i.imgur.com/xObaQ8I.png)\n\n\n## License\n\n[MIT](https://choosealicense.com/licenses/mit/)\n\n\n## Authors\n\n- [@markcalendario](https://www.github.com/markcalendario)\n"
+}]
