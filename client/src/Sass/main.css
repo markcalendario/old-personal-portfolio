@@ -1416,6 +1416,7 @@ body {
 }
 #expertise .container .wrapper .tech-group .tech-list {
   display: flex;
+  flex-wrap: wrap;
 }
 #expertise .container .wrapper .tech-group .tech-list > * {
   margin: 20px 20px 20px 0;
