@@ -391,11 +391,8 @@ body {
 				}
 
 				.tech-list {
-					display: flex;
-					flex-wrap: wrap;
-
 					&>* {
-						margin: 20px 20px 20px 0;
+						margin: 20px auto;
 					}
 				}
 			}
@@ -404,6 +401,30 @@ body {
 }
 
 @media (min-width: 768px) {
+	#expertise {
+
+		.container {
+			.wrapper {
+				.tech-group {
+					margin: 30px 0;
+
+					.tech-group-title {
+						padding: 10px 0;
+					}
+
+					.tech-list {
+						display: flex;
+						flex-wrap: wrap;
+
+						&>* {
+							margin: 20px 20px 20px 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	#request-project {
 		.container {
 			.wrapper {

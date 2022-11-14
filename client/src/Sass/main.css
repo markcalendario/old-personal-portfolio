@@ -1414,15 +1414,24 @@ body {
 #expertise .container .wrapper .tech-group .tech-group-title {
   padding: 10px 0;
 }
-#expertise .container .wrapper .tech-group .tech-list {
-  display: flex;
-  flex-wrap: wrap;
-}
 #expertise .container .wrapper .tech-group .tech-list > * {
-  margin: 20px 20px 20px 0;
+  margin: 20px auto;
 }
 
 @media (min-width: 768px) {
+  #expertise .container .wrapper .tech-group {
+    margin: 30px 0;
+  }
+  #expertise .container .wrapper .tech-group .tech-group-title {
+    padding: 10px 0;
+  }
+  #expertise .container .wrapper .tech-group .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #expertise .container .wrapper .tech-group .tech-list > * {
+    margin: 20px 20px 20px 0;
+  }
   #request-project .container .wrapper {
     display: flex;
     align-items: center;
