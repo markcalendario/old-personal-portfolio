@@ -3,7 +3,10 @@ import { TechTag } from './TechTag';
 
 export function Project(props) {
 	return (
-		<a key={props.data._id} className='proj-link' href={`/view-project/${props.data._id}`}>
+		<a
+			// key={props.data._id} 
+			className='proj-link'
+			href={`/view-project/${props.data.id}`}>
 			<Tilt
 				className='project-card'
 				tiltReverse={true}
@@ -29,8 +32,7 @@ export function Project(props) {
 					<figure className='project-image'>
 						<img
 							src={
-								process.env.REACT_APP_API_URL +
-								'/projects/project-photo/' +
+								'/database/projects/' +
 								props.data.projectImage
 							}
 							alt={'Illustration of' + props.data.projectImage}

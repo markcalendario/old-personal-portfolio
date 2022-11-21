@@ -8,30 +8,21 @@ import { useParams } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
 import { marked } from 'marked';
 
+import Projects from '../../Functions/projects';
+const projects = new Projects()
+
 function ViewSingleProjectPage() {
 	const [projectInformation, setProjectInformation] = useState(null);
 	const { projectId } = useParams()
 
-	const fetchProjectInformation = useCallback(() => {
-		let options = {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		};
+	const fetchProjectInformation = useCallback(async () => {
+		await projects.fetchProjects()
+		if (!projects.isProjectIDExists(projectId))
+			return window.location.href = "/404"
 
-		fetch(
-			process.env.REACT_APP_API_URL + '/projects/project-info/' + projectId,
-			options
-		)
-			.then((result) => {
-				if (!result.ok) {
-					window.location.href = `/${result.status}`;
-				}
-				return result.json();
-			})
-			.then((result) => {
-				setProjectInformation(result.data);
-			});
+		setProjectInformation(projects.getProjectInformation(projectId))
 	}, [projectId]);
+
 
 	useEffect(() => {
 		document.title = 'Fetching project info...';
@@ -40,8 +31,7 @@ function ViewSingleProjectPage() {
 
 	useEffect(() => {
 		if (projectInformation !== null) {
-			document.title =
-				projectInformation.projectShortName + ' Project | Mark Kenneth Calendario';
+			document.title = projectInformation.projectShortName + ' Project | Mark Kenneth Calendario';
 		}
 	}, [projectInformation]);
 
@@ -85,8 +75,7 @@ function ProjectBanner(props) {
 						>
 							<img
 								src={
-									process.env.REACT_APP_API_URL +
-									'/projects/project-photo/' +
+									'/database/projects/' +
 									props.projectImageID
 								}
 								alt={props.projectImageID}

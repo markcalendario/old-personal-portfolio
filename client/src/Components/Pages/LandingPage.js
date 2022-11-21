@@ -49,12 +49,10 @@ import Windows from '../../Images/techicons/windows.png'
 import VSCode from '../../Images/techicons/vscode.png'
 import Firebase from '../../Images/techicons/firebase.png'
 
+import Projects from '../../Functions/projects'
+const projects = new Projects()
+
 export default function LandingPage() {
-
-	useEffect(() => {
-		document.title = 'Mark Kenneth Calendario';
-	}, []);
-
 	return (
 		<Fragment>
 			<PrimaryNavbar />
@@ -116,7 +114,7 @@ function Front() {
 									<FontAwesomeIcon icon={faFacebook} />
 								</IconButton>
 
-								<IconButton href='https://instagram.com/_kendies19'>
+								<IconButton href='https://instagram.com/_markcalendario'>
 									<FontAwesomeIcon icon={faInstagram} />
 								</IconButton>
 							</div>
@@ -129,26 +127,16 @@ function Front() {
 }
 
 function QuickOverview() {
-	const [latestProjectData, setLatestProjectData] = useState(null);
+	const [latestProject, setLatestProject] = useState(null)
 
-	const fetchLatestProject = useCallback(async () => {
-		const options = {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		};
-
-		await fetch(process.env.REACT_APP_API_URL + '/projects/latest', options)
-			.then((result) => {
-				return result.json();
-			})
-			.then((result) => {
-				setLatestProjectData(result.data);
-			});
-	}, []);
+	const initializeLatestProject = useCallback(async () => {
+		await projects.fetchProjects()
+		setLatestProject(projects.getLatestProject())
+	}, [])
 
 	useEffect(() => {
-		fetchLatestProject();
-	}, [fetchLatestProject]);
+		initializeLatestProject()
+	}, [initializeLatestProject])
 
 	return (
 		<Section id='quick-overview'>
@@ -204,8 +192,8 @@ function QuickOverview() {
 						<div className='right'>
 							<h3>Latest Project</h3>
 							<div className='content'>
-								{latestProjectData !== null ? (
-									<Project key={latestProjectData._id} data={latestProjectData} />
+								{latestProject !== null ? (
+									<Project key={latestProject.id} data={latestProject} />
 								) : (
 									<ProjectLoader />
 								)}
@@ -354,9 +342,9 @@ function About() {
 function Expertise() {
 	return (
 		<Section id='expertise'>
-			<div class="expertise-triangle-top">
+			<div className="expertise-triangle-top">
 				<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-					<path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
+					<path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
 				</svg>
 			</div>
 			<Container>
@@ -496,33 +484,19 @@ function Expertise() {
 }
 
 function FeaturedProjects() {
-	const [featuredProjectData, setFeaturedProjectData] = useState(null);
+	const [featuredProjects, setFeaturedProjects] = useState(null)
 
-	const fetchFeaturedProjects = useCallback(() => {
-		const options = {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		};
-
-		let data = fetch(process.env.REACT_APP_API_URL + '/projects/featured-projects', options);
-
-		data
-			.then((response) => {
-				if (!response.ok) return (window.location.href = `/${response.status}`);
-
-				return response.json();
-			})
-			.then((result) => {
-				setFeaturedProjectData(result.data);
-			});
-	}, []);
+	const initializeFeaturedProjectsData = useCallback(async () => {
+		await projects.fetchProjects()
+		setFeaturedProjects(projects.getFeaturedProject())
+	}, [])
 
 	useEffect(() => {
-		fetchFeaturedProjects();
-	}, [fetchFeaturedProjects]);
+		initializeFeaturedProjectsData()
+	}, [initializeFeaturedProjectsData])
 
 	const displayFeaturedProjects = () => {
-		return featuredProjectData.map((data) => <Project key={data._id} data={data} />);
+		return featuredProjects.map((data) => <Project key={data.id} data={data} />);
 	};
 
 	return (
@@ -546,7 +520,7 @@ function FeaturedProjects() {
 					</div>
 
 					<div className='projects'>
-						{featuredProjectData !== null ? (
+						{featuredProjects !== null ? (
 							displayFeaturedProjects()
 						) : (
 							<FeaturedProjectLoader />

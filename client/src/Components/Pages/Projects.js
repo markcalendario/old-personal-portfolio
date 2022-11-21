@@ -7,8 +7,9 @@ import { Button } from '../Shards/Buttons';
 import { RequestProjectModal } from '../Shards/Modals';
 import { isUserAlreadySubmittedRequest } from '../../Functions/user-local-data';
 import Footer from '../Shards/Footer';
-
 import NotFoundIllustration from '../../Images/error/404.svg';
+import Projects from '../../Functions/projects';
+const projects = new Projects()
 
 export default function ProjectPage() {
 	const { technologyFilter } = useParams()
@@ -109,14 +110,9 @@ function ProjectNavigator() {
 		));
 	}
 
-	const fetchTechnologyOptions = useCallback(() => {
-		fetch(process.env.REACT_APP_API_URL + "/projects/tech-options", {
-			method: 'GET'
-		}).then(response => {
-			return response.json()
-		}).then(result => {
-			setTechnologyOptions(result.techOptions)
-		})
+	const fetchTechnologyOptions = useCallback(async () => {
+		await projects.fetchProjects()
+		setTechnologyOptions(projects.getTechnologyOptions())
 	}, [])
 
 	useEffect(() => {
@@ -139,34 +135,23 @@ function ProjectNavigator() {
 }
 
 function ProjectList() {
-	const { technologyFilter } = useParams();
-	const [projects, setProjects] = useState(null);
+	const [projectsData, setProjectsData] = useState(null);
 
-	const fetchProjects = useCallback(() => {
-		let options = {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		};
-
-		fetch(process.env.REACT_APP_API_URL + '/projects/list/' + technologyFilter, options)
-			.then((result) => {
-				return result.json();
-			})
-			.then((result) => {
-				setProjects(result.data);
-			});
-	}, [technologyFilter]);
+	const fetchProjects = useCallback(async () => {
+		await projects.fetchProjects()
+		setProjectsData(projects.getAllTechnologies())
+	}, []);
 
 	useEffect(() => {
 		fetchProjects();
 	}, [fetchProjects]);
 
 	const displayProjectList = () => {
-		if (projects.length === 0)
+		if (projectsData.length === 0)
 			return <NoProjectsFound />;
 
-		return projects.map((data) => (
-			<div key={data._id} className='project-wrapper'>
+		return projectsData.map((data) => (
+			<div key={data.id} className='project-wrapper'>
 				<Project data={data} />
 			</div>
 		));
@@ -178,12 +163,12 @@ function ProjectList() {
 				<div className='topper'>
 					<h1>Project List</h1>
 					<p>
-						{projects !== null ? projects.length : null}{' '}
-						{projects !== null ? (projects.length > 1 ? 'results' : 'result') : null}
+						{projectsData !== null ? projectsData.length : null}
+						{projectsData !== null ? (projectsData.length > 1 ? 'results' : 'result') : null}
 					</p>
 				</div>
 
-				{projects === null ? <ProjectLoader /> : displayProjectList()}
+				{projectsData === null ? <ProjectLoader /> : displayProjectList()}
 			</div>
 		</>
 	);
