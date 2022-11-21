@@ -136,11 +136,27 @@ function ProjectNavigator() {
 
 function ProjectList() {
 	const [projectsData, setProjectsData] = useState(null);
+	const [projectsCount, setProjectsCount] = useState(0);
+	const { technologyFilter } = useParams()
 
 	const fetchProjects = useCallback(async () => {
 		await projects.fetchProjects()
 		setProjectsData(projects.getAllTechnologies())
 	}, []);
+
+	const populateProjectCount = useCallback(() => {
+		if (projectsData === null) return
+
+		projectsData.forEach(data => {
+			if (data.technologies.includes(technologyFilter) || technologyFilter === 'all') {
+				setProjectsCount(prev => prev + 1)
+			}
+		})
+	}, [projectsData, technologyFilter])
+
+	useEffect(() => {
+		populateProjectCount();
+	}, [projectsData, populateProjectCount])
 
 	useEffect(() => {
 		fetchProjects();
@@ -152,7 +168,10 @@ function ProjectList() {
 
 		return projectsData.map((data) => (
 			<div key={data.id} className='project-wrapper'>
-				<Project data={data} />
+				{technologyFilter === 'all'
+					? <Project data={data} />
+					: data.technologies.includes(technologyFilter)
+						? <Project data={data} /> : null}
 			</div>
 		));
 	};
@@ -163,8 +182,8 @@ function ProjectList() {
 				<div className='topper'>
 					<h1>Project List</h1>
 					<p>
-						{projectsData !== null ? projectsData.length : null}
-						{projectsData !== null ? (projectsData.length > 1 ? 'results' : 'result') : null}
+						{projectsCount}{' '}
+						{projectsCount !== 1 ? 'results' : 'result'}
 					</p>
 				</div>
 
